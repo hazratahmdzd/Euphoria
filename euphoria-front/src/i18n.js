@@ -21,7 +21,7 @@ i18n
   .use(languageDetector)
   .use(initReactI18next)
   .init({
-    lng: localStorage.getItem("i18nextLng") || "az",
+    lng: localStorage.getItem("i18nextLng") || "en",
     fallbackLng: "en",
     debug: true,
     whitelist: availableLanguages,

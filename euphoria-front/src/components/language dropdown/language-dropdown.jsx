@@ -14,8 +14,8 @@ const Languageoption = () => {
       onChange={handleChange}
       value={localStorage.getItem("i18nextLng")}
     >
-      <option style={{ cursor: "pointer" }} value={"az"}>Azerbaijan</option>
       <option style={{ cursor: "pointer" }} value={"en"}>English</option>
+      <option style={{ cursor: "pointer" }} value={"az"}>Azerbaijan</option>
       <option style={{ cursor: "pointer" }} value={"ru"}>Russian</option>
     </select>
   );
