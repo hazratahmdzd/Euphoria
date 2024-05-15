@@ -1,6 +1,5 @@
 import React from "react";
 import checkEmailStyle from "./checkemail.module.scss";
-import chckImage from "../../assets/imgs/chckEmail.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -11,7 +10,7 @@ function CheckEmail() {
     <div className={checkEmailStyle.checkEmail}>
       <img
         className={checkEmailStyle.image}
-        src={chckImage}
+        src="/img/chckEmail.png"
         alt="check email image..."
       />
       <div className={checkEmailStyle.container}>
