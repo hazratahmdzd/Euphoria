@@ -37,7 +37,7 @@ nav {
             margin-right: 50px;
         }
 
-        &>a {
+        &> a {
             min-width: 120px;
             height: 40px;
             border: 1px solid gray;
@@ -54,10 +54,7 @@ nav {
 
         }
 
-        &>a.active {
-            background-color: #8A33FD;
-            color: white;
-        }
+        
     }
 }
 
