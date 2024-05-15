@@ -1,13 +1,12 @@
 import React from "react";
 import verificationStyle from "./verification.module.scss";
-import verificationImage from "../../assets/imgs/verification.png";
 import { useTranslation } from "react-i18next";
 
 function Verification() {
   const { t } = useTranslation();
   return (
     <div className={verificationStyle.verificationContainer}>
-      <img src={verificationImage} alt="verification image..." />
+      <img src="/img/verification.png" alt="verification image..." />
       <div className={verificationStyle.container}>
         <div>
           <h2>{t("Verification")}</h2>
