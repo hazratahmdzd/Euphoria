@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import signinStyle from "./signin.module.scss"
-import image from "../../assets/imgs/sign-in.jpg"
 import { Link } from "react-router-dom"
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +13,7 @@ function Signin() {
 
   return (
     <div className={signinStyle.signin}>
-      <img src={image} alt="" />
+      <img src="/img/sign-in.jpg" alt="" />
       <div className={signinStyle.container}>
 
         <h2>{t("Sign In Page")}</h2>
