@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import signupStyle from "./signup.module.css";
-import image from "../../assets/imgs/sign-up.jpg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from 'react-i18next';
@@ -38,7 +37,7 @@ const Signup = () => {
 
     return (
         <div className={signupStyle.signup}>
-            <img src={image} className={signupStyle.signupImg} alt="Euphoria" />
+            <img src="/img/sign-up.jpg" className={signupStyle.signupImg} alt="Euphoria" />
 
             <div className={signupStyle.container}>
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import navStyle from "./navbar.module.scss"
-import logo from "../../assets/imgs/Logo.svg"
 import Languageoption from "../../components/language dropdown/language-dropdown"
 // Dil deyisimi ucun
 import { useTranslation } from 'react-i18next';
@@ -17,7 +16,7 @@ function AuthNavbar() {
 
     return (
         <nav>
-            <NavLink to={'/'}><img src={logo} /></NavLink>
+            <NavLink to={'/'}><img src="/svg/logo.svg" /></NavLink>
             <input type="text" placeholder={t("Search")} />
             <ul className={navStyle.list}>
                 <Languageoption onChange={e => handleClick(e)} />
