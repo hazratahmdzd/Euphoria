@@ -15,17 +15,37 @@ nav {
         width: 100px;
     }
 
-    &>input {
+    .input {
         min-width: 180px;
         height: 40px;
-        background-color: #fff;
-        padding-left: 20px;
-        border-radius: 10px;
-        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-color: #efefef;
+        border-radius: 10px;
         color: black;
-        outline: none;
+        padding-left: 20px;
+
+        &>i {
+            color: gray;
+            font-size: 14px;
+        }
+
+        &>input {
+            padding-left: 10px;
+            padding-right: 20px;
+            border: none;
+            outline: none;
+            background-color: #efefef;
+            color: black;
+            border-radius: 10px;
+        }
+
+        &>input::placeholder {
+            font-size: 12px;
+        }
     }
+
 
     .list {
         display: flex;
@@ -37,7 +57,7 @@ nav {
             margin-right: 50px;
         }
 
-        &> a {
+        &>a {
             min-width: 120px;
             height: 40px;
             border: 1px solid gray;
@@ -54,7 +74,7 @@ nav {
 
         }
 
-        
+
     }
 }
 

@@ -18,7 +18,10 @@ function AuthNavbar() {
     return (
         <nav>
             <NavLink to={'/'}><img src="/svg/logo.svg" /></NavLink>
-            <input type="text" placeholder={t("Search")} />
+            <div className={navStyle.input}>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder={t("Search")} />
+            </div>
             <ul className={navStyle.list}>
                 <Languageoption onChange={e => handleClick(e)} />
                 <NavLink to={'/auth/sign-in'}>{t("Login")}</NavLink>

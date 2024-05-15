@@ -3,6 +3,7 @@
 * {
   font-family: "Open Sans", sans-serif;
 }
+
 :root {
   --color-lemonGrass: #999999;
   --color-aztecPurple: #8a33fd;
@@ -11,17 +12,20 @@
   --color-dune: #333333;
   --color-white: #fff;
 }
+
 .verificationContainer {
   width: 100%;
   min-height: 90vh;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  & > img {
-    width: 45.8%;
+
+  &>img {
+    width: 600px;
     object-fit: cover;
   }
 }
+
 .container {
   padding: 50px;
   width: 100%;
@@ -29,9 +33,11 @@
   display: flex;
   flex-direction: column;
   gap: 35px;
-  & > div {
+
+  &>div {
     width: 100%;
-    & > h2 {
+
+    &>h2 {
       font-size: 34px;
       font-weight: 600;
       line-height: 33px;
@@ -40,40 +46,68 @@
       font-optical-sizing: auto;
       color: var(--color-dune, #333333);
     }
-    & > p {
+
+    &>p {
       font-size: 16px;
       font-weight: 500;
       margin-left: 5px;
       color: var(--color-lemonGrass, #999999);
     }
   }
-  & > .verificationInput {
+
+  &>.verificationInput {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    & > input {
+
+    &>input {
       width: 79%;
       height: 54px;
       border-radius: 8px;
       border: 1px solid var(--color-lemonGrass, #999999);
       outline-color: var(--color-aztecPurple, #8a33fd);
+      padding-left: 20px;
+      padding-right: 20px;
     }
-    & > p {
+
+    &>p {
       font-weight: 400;
       font-size: 18px;
       color: var(--color-charcoalGrey, #3c4242);
     }
   }
-  & > button {
+
+  &>button {
     width: 167px;
     height: 54px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500px;
     color: var(--color-white, #fff);
     background-color: var(--color-aztecPurple, #8a33fd);
     border-radius: 8px;
     border-color: transparent;
     cursor: pointer;
+  }
+}
+
+@media only screen and (max-width:900px) {
+  .verificationContainer {
+    flex-direction: column-reverse;
+    min-height: 30vh;
+
+    &>img {
+      width: 100%;
+    }
+  }
+
+  .container {
+    min-height: 30vh;
+
+    &>.verificationInput {
+      &>input {
+        width: 100%;
+      }
+    }
   }
 }
