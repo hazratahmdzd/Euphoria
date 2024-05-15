@@ -5,8 +5,8 @@
     min-height: 90vh;
     overflow: hidden;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    transition: .5s;
 
     &>img {
         width: 600px;
@@ -21,6 +21,7 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
+        transition: .5s;
 
         &>h2 {
             font-size: 34px;
@@ -32,6 +33,7 @@
             font-optical-sizing: auto;
             width: 80%;
             text-align: start;
+            transition: .5s;
         }
 
         &>button {
@@ -68,6 +70,7 @@
             align-items: center;
             justify-content: space-between;
             width: 80%;
+            transition: .5s;
 
             &>span {
                 width: 45%;
@@ -81,6 +84,7 @@
             flex-direction: column;
             gap: 5px;
             margin-top: 10px;
+            transition: .5s;
 
             &>p {
                 font-family: "Open Sans", sans-serif;
@@ -125,6 +129,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            transition: .5s;
 
             &>button {
                 width: 170px;
@@ -146,6 +151,7 @@
 
                 &>a {
                     text-decoration: underline;
+                    color: black;
                 }
             }
         }
@@ -164,28 +170,34 @@
     .signin {
         .container {
             padding: 30px;
+            transition: .5s;
 
             &>h2 {
                 width: 100%;
                 margin-bottom: 20px;
+                transition: .5s;
             }
 
             &>button {
                 width: 100%;
+                transition: .5s;
             }
 
             .line {
                 width: 100%;
                 margin-top: 30px;
                 margin-bottom: 20px;
+                transition: .5s;
             }
 
             .input {
                 width: 100%;
+                transition: .5s;
             }
 
             .end {
                 width: 100%;
+                transition: .5s;
             }
         }
     }
