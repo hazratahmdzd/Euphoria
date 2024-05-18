@@ -4,6 +4,7 @@ import Signin from "../components/sign in/Signin";
 import CheckEmail from "../components/check email/CheckEmail";
 import Verification from "../components/verification/Verification";
 import Signup from "../components/sign up/Signup";
+import ResetPassword from "../components/reset password/ResetPassword";
 
 
 export const Router = createBrowserRouter([
@@ -25,6 +26,7 @@ export const Router = createBrowserRouter([
             },
             {
                 path: "/auth/reset-password",
+                element: <ResetPassword />
             },
             {
                 path: "/auth/check-email",
