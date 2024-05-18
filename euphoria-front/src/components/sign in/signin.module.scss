@@ -11,6 +11,7 @@
     &>img {
         width: 600px;
         object-fit: cover;
+        transition: .5s;
     }
 
     .container {
@@ -105,11 +106,12 @@
             &>input {
                 width: 100%;
                 height: 50px;
-                outline: none;
                 border: 1px solid gray;
                 border-radius: 10px;
                 padding-left: 20px;
                 font-size: 16px;
+                outline-color: #8a33fd;
+                padding-right: 20px;
             }
 
             a {
@@ -160,8 +162,12 @@
 
 @media only screen and (max-width:950px) {
     .signin {
+        flex-direction: column-reverse;
+        transition: .5s;
+
         &>img {
-            display: none;
+            width: 100%;
+            transition: .5s;
         }
     }
 }
