@@ -13,5 +13,11 @@
     "Forget your password": "Parolu unutdum",
     "Sign In": "Giriş",
     "Don’t have an account?": "Hesabınız yoxdur?",
-    "Sign up": "Qeydiyyatdan keç"
+    "Sign up": "Qeydiyyatdan keç",
+    "Reset Your Password": "Parolunuzu sıfırlayın",
+    "Enter your email and we`ll send you a link to reset your password.": "E-poçtunuzu daxil edin və biz sizə parolunuzu sıfırlamaq üçün link göndərəcəyik.",
+    "Please check it.": "Zəhmət olmasa yoxlayın.",
+    "Email": "E-poçt",
+    "Send": "Göndər",
+    "Back to": "Geriyə qayıt"
 }

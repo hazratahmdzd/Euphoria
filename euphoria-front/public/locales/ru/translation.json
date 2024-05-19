@@ -13,5 +13,11 @@
     "Forget your password": "Забыли свой пароль",
     "Sign In": "Войти",
     "Don’t have an account?": "Нет аккаунта?",
-    "Sign up": "Зарегистрироваться"
+    "Sign up": "Зарегистрироваться",
+    "Reset Your Password": "Сбросить пароль",
+    "Enter your email and we`ll send you a link to reset your password.": "Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.",
+    "Please check it.": "Пожалуйста, проверь это.",
+    "Email": "Э-почта",
+    "Send": "Отправлять",
+    "Back to": "Вернись"
 }
