@@ -1,6 +1,5 @@
-import React from 'react'
 import resetPasswordStyle from './resetpassword.module.scss'
-import respassimg from '../../../public/img/respassimg.png'
+import respassimg from '../../../../public/img/respassimg.png'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
