@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Home, Auth } from "../pages"
-import Signin from "../components/sign in/Signin";
-import CheckEmail from "../components/check email/CheckEmail";
-import Verification from "../components/verification/Verification";
-import Signup from "../components/sign up/Signup";
+import Signin from "../components/Auth/sign in/Signin";
+import CheckEmail from "../components/Auth/check email/CheckEmail";
+import Verification from "../components/Auth/verification/Verification";
+import Signup from "../components/Auth/sign up/Signup";
 
 
 export const Router = createBrowserRouter([
