@@ -5,13 +5,15 @@ import hm from '../../../../public/img/hm.png'
 import levis from '../../../../public/img/levis.png'
 import uspolo from '../../../../public/img/uspolo.png'
 import puma from '../../../../public/img/puma.png'
+import { useTranslation } from 'react-i18next'
 
 const TopBrands = () => {
+const {t} = useTranslation();
   return (
     <div className={topBrandsStyle.topBrands}>
         <div className={topBrandsStyle.topBrandsText}>
-          <h1>Top Brands Deal</h1>
-          <p>Up To <span style={{color:"#FBD103"}}>60%</span> off on brands</p>
+          <h1>{t("Top Brands Deal")}</h1>
+          <p>{t("Up To")} <span style={{color:"#FBD103"}}>60%</span> {t("off on brands")}</p>
         </div>
         <div className={topBrandsStyle.topBrandsImg}>
           <img src={nike} alt="nike" />
