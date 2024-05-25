@@ -5,6 +5,7 @@ import NewArrival from "../../components/Home/NewArrival/NewArrival";
 import Footer from "../../layout/footer/Footer";
 import HomeNavbar from "../../layout/navbar/HomeNavbar";
 import BigZone from "../../components/Home/BigZone/BigZone";
+import CategoriesForMen from "../../components/Home/CategoriesForMen/CategoriesForMen";
 
 export const Home = () => {
   return (
@@ -14,6 +15,7 @@ export const Home = () => {
       <SaleProducts />
       <NewArrival />
       <BigZone />
+      <CategoriesForMen />
       <Footer />
     </>
   );
