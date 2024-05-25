@@ -44,7 +44,7 @@
         &>div{
             display: flex;
             &>img{
-                width: 160px;
+                width: 175px;
                 height: 55px;
                 margin-right: 13px;
             }
@@ -77,17 +77,43 @@
         font-size: 15px;
     }
 }
-
+@media only screen and (max-width: 916px) {
+    .footer{
+        &>.footerInside{
+            row-gap: 30px;
+            &>.gridColumns{
+                &>h2{
+                    font-size: 15px;
+                }
+            }
+        }
+        &>.socials{
+            margin-top: 25px;
+            &>.socials2{
+                &>div{
+                    &>img{
+                        width: 140px;
+                        height: 60px;
+                    }
+                }
+            }
+        }
+        &>.copyright{
+            font-size: 14px;
+        }
+    }
+}
 @media only screen and (max-width: 575px) {
     .footer{
         &>.footerInside{
             grid-template-columns: 1fr 1fr ;
+            row-gap: 30px;
         }
         &>.socials{
             &>.socials2{
                 &>div{
                     &>img{
-                        width: 100px;
+                        width: 90px;
                         height: 50px;
                     }
                 }
@@ -101,18 +127,36 @@
 }
 @media only screen and (max-width: 377px) {
     .footer{
+        &>.footerInside{
+            row-gap: 30px;
+            grid-template-columns: 1fr;
+            &>.gridColumns{
+                &>h2{
+                    font-size: 16px;
+                }
+                &>p{
+                    font-size: 14px;
+                }
+            }
+        }
         &>.socials{
             &>.socials2{
                 &>div{
                     &>img{
-                        width: 80px;
-                        height: 50px;
+                        width: 75px;
+                        height: 35px;
                     }
                 }
             }
         }
         &>.copyright{
             font-size: 9px;
+        }
+        &>.categories{
+            &>span{
+                font-size: 14px;
+                margin-right: 15px;
+            }
         }
     }
 }

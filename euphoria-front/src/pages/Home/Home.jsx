@@ -6,6 +6,7 @@ import Footer from "../../layout/footer/Footer";
 import FashionSection from "../../components/Home/FashionSection/FashionSection";
 import HomeNavbar from "../../layout/navbar/HomeNavbar";
 import BigZone from "../../components/Home/BigZone/BigZone";
+import TopBrands from "../../components/Home/TopBrands/TopBrands";
 
 export const Home = () => {
   return (
@@ -16,6 +17,7 @@ export const Home = () => {
       <NewArrival />
       <FashionSection/>
       <BigZone />
+      <TopBrands />
       <Footer />
     </>
   );

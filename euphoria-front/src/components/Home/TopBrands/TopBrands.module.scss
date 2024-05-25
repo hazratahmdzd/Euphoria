@@ -14,10 +14,12 @@
       justify-content: center;
       align-items: center;
       row-gap: 10px;
+      margin-bottom: 40px;
       &>h1{
           font-weight: 800;
           color: white;
           font-size: 50px;
+          margin-top: 20px;
       }
       &>p{
           color: white;
@@ -29,6 +31,7 @@
       gap: 10px;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      margin-bottom: 40px;
     }
   }
   
@@ -54,7 +57,7 @@
             justify-content: center;
             align-items: center;
             margin-top: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
             &>img{
               height: 13vh;
             }
@@ -81,7 +84,7 @@
               justify-content: center;
               align-items: center;
               margin-top: 10px;
-              margin-bottom: 10px;
+              margin-bottom: 40px;
               &>img{
                 height: 13vh;
               }
