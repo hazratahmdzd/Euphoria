@@ -10,12 +10,6 @@
     }
 }
 
-@mixin tablet {
-    @media (max-width: 998px) {
-        @content;
-    }
-}
-
 .CategoriesForMen {
     width: 100%;
     min-height: 30vh;
@@ -31,6 +25,10 @@
         display: flex;
         flex-direction: column;
         align-items: start;
+
+        @include mobile {
+            width: 90%;
+        }
 
         &>h2 {
             display: flex;
@@ -55,6 +53,10 @@
         justify-content: center;
         gap: 25px;
         flex-wrap: wrap;
+
+        @include mobile {
+            width: 85%;
+        }
 
         .card {
             width: 22.5%;
