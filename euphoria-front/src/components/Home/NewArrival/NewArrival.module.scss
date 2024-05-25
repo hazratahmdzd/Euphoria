@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  // background-color: yellow;
+
   & > .context {
     width: 80%;
     height: 30px;
@@ -27,15 +27,16 @@
     font-weight: 600;
     font-size: 34px;
     letter-spacing: 2%;
-    color: var(--color-charcoalGrey,#3c4242);
-    ;
+    color: var(--color-charcoalGrey);
+
     & > .line {
       width: 6px;
       height: 100%;
       border-radius: 10px;
-      background-color: var(--color-aztecPurple, #8a33fd);
+      background-color: var(--color-aztecPurple);
     }
   }
+
   & > div {
     width: 80%;
     height: 70%;
@@ -50,15 +51,17 @@
   display: flex !important;
   justify-content: space-around;
   flex-direction: column;
+  position: relative;
+
   & > img {
     width: 100%;
     height: 262px;
     object-fit: contain;
   }
+
   & > p {
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 1%;
   }
 }
-
