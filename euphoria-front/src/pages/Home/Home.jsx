@@ -16,8 +16,8 @@ export const Home = () => {
       <HomeSlide />
       <SaleProducts />
       <NewArrival />
-      <FashionSection/>
       <BigZone />
+      <FashionSection/>
       <CategoriesForMen />
       <TopBrands />
       <Footer />
