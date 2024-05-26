@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 function NewArrival() {
   const { t } = useTranslation();
 
-  function SampleNextArrow(props) {
+  function SampleArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
@@ -55,8 +55,8 @@ function NewArrival() {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleArrow />,
+    prevArrow: <SampleArrow />,
     responsive: [
       {
         breakpoint: 1024,
