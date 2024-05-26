@@ -10,6 +10,12 @@
   height: 20px;
   background-color: #8a33fd;
 }
+.headText {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  margin: 20px 0;
+}
 .text {
   display: flex;
   flex-direction: row;
