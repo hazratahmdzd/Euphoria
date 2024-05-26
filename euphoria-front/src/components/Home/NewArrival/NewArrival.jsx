@@ -12,21 +12,19 @@ function NewArrival() {
     const { className, style, onClick } = props;
     return (
       <div
-        className={className}
-        onClick={onClick}
-        style={{
-          ...style,
-          width: "20px",
-          height: "20px",
-          fontSize: "20px",
-          textAlign: "center",
-          position: "absolute",
-          top: "50%",
-          transform: "translate(0, -50%)",
-        }}
-      >
-        <i style={{ color: "black" }} class="fa-solid fa-angle-right"></i>
-      </div>
+      className={className}
+      style={{ ...style,
+      width: "20px",
+      height: "20px",
+      fontSize: "20px",
+      textAlign: "center",
+      position: "absolute",
+      top: "50%",
+      display: "block",
+      background: "gray",
+      borderRadius: "100%" }}
+      onClick={onClick}
+  />
     );
   }
 
@@ -34,21 +32,19 @@ function NewArrival() {
     const { className, style, onClick } = props;
     return (
       <div
-        className={className}
-        onClick={onClick}
-        style={{
-          ...style,
-          width: "20px",
-          height: "20px",
-          fontSize: "20px",
-          textAlign: "center",
-          position: "absolute",
-          top: "50%",
-          transform: "translate(0, -50%)",
-        }}
-      >
-        <i style={{ color: "black" }} class="fa-solid fa-angle-left"></i>
-      </div>
+      className={className}
+      style={{ ...style,
+      width: "20px",
+      height: "20px",
+      fontSize: "20px",
+      textAlign: "center",
+      position: "absolute",
+      top: "50%",
+      display: "block",
+      background: "gray",
+      borderRadius: "100%" }}
+      onClick={onClick}
+  />
     );
   }
 
