@@ -21,7 +21,7 @@
 }
 
 .img1 {
-  background: url("../img/woman1.png") center/cover;
+  background: url("../img/woman1.png") top/cover;
 }
 
 .img2 {
@@ -37,11 +37,13 @@
 }
 
 .card {
-  width: 250px !important;
+  /* width: 250px !important; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
 }
 
 .text {
@@ -82,6 +84,6 @@
   .img3,
   .img4,
   .text {
-    width: 320px;
+    width: 100%;
   }
 }
