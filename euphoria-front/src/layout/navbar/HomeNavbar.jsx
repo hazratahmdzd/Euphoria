@@ -9,6 +9,7 @@ import { GoPerson } from "react-icons/go";
 import { BiCart } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CgMenuMotion } from "react-icons/cg";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 function HomeNavbar() {
   const { t } = useTranslation();
@@ -47,23 +48,23 @@ function HomeNavbar() {
             </li>
           </ul>
           <div className={navhomeStyle.input}>
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <FaMagnifyingGlass style={{ color: "gray" }} />
             <input type="text" placeholder={t("Search")} />
           </div>
           <Languageoption onChange={(e) => handleClick(e)} />
           <div className={navhomeStyle.elements}>
             <div className={navhomeStyle.elem}>
-              <NavLink>
+              <NavLink to={'/wishlist'}>
                 <MdFavoriteBorder />
               </NavLink>
             </div>
             <div className={navhomeStyle.elem}>
-              <NavLink>
+              <NavLink to={'/auth/sign-in'}>
                 <GoPerson />
               </NavLink>
             </div>
             <div className={navhomeStyle.elem}>
-              <NavLink>
+              <NavLink to={'/cart'}>
                 <BiCart />
               </NavLink>
             </div>
