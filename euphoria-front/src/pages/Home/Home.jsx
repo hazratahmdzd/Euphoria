@@ -6,7 +6,9 @@ import Footer from "../../layout/footer/Footer";
 import FashionSection from "../../components/Home/FashionSection/FashionSection";
 import HomeNavbar from "../../layout/navbar/HomeNavbar";
 import BigZone from "../../components/Home/BigZone/BigZone";
+import CategoriesForMen from "../../components/Home/CategoriesForMen/CategoriesForMen";
 import TopBrands from "../../components/Home/TopBrands/TopBrands";
+import Woman from "../../components/Home/Woman/Woman";
 
 export const Home = () => {
   return (
@@ -15,8 +17,10 @@ export const Home = () => {
       <HomeSlide />
       <SaleProducts />
       <NewArrival />
-      <FashionSection/>
       <BigZone />
+      <FashionSection />
+      <CategoriesForMen />
+      <Woman />
       <TopBrands />
       <Footer />
     </>
