@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, Auth } from "../pages";
+import { Home, Auth, Checkout } from "../pages"
 import Signin from "../components/Auth/sign in/Signin";
 import CheckEmail from "../components/Auth/check email/CheckEmail";
 import Verification from "../components/Auth/verification/Verification";
@@ -10,8 +10,8 @@ import ProductList from "../pages/ProductList/ProductList";
 
 export const Router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
+    path: '/',
+    element: <Home />
   },
   {
     path: "/auth",
@@ -19,32 +19,42 @@ export const Router = createBrowserRouter([
     children: [
       {
         path: "/auth/sign-in",
-        element: <Signin />,
+        element: <Signin />
       },
       {
         path: "/auth/sign-up",
-        element: <Signup />,
+        element: <Signup />
       },
       {
         path: "/auth/reset-password",
-        element: <ResetPassword />,
+        element: <ResetPassword />
       },
       {
         path: "/auth/check-email",
-        element: <CheckEmail />,
+        element: <CheckEmail />
       },
       {
         path: "/auth/verification",
-        element: <Verification />,
+        element: <Verification />
       },
       {
         path: "/auth/create-new-password",
-        element: <Password />,
-      },
-    ],
+        element: <Password />
+      }
+    ]
+  },
+  {
+    path: "/cart",
+    element: <Checkout />,
+    children: [
+      {
+        path: "/cart/checkout",
+        element: <Checkout />
+      }
+    ]
   },
   {
     path: "/product list",
     element: <ProductList />,
   },
-]);
+])
