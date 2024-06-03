@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, Auth } from "../pages"
+import { Home, Auth, Women, Detail } from "../pages"
 import Signin from "../components/Auth/sign in/Signin";
 import CheckEmail from "../components/Auth/check email/CheckEmail";
 import Verification from "../components/Auth/verification/Verification";
@@ -42,4 +42,12 @@ export const Router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/women',
+        element: <Women />
+    },
+    {
+        path: '/women/:id',
+        element: <Detail />
+    }
 ])
