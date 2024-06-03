@@ -78,7 +78,7 @@ input::placeholder {
 
 .elements {
   display: flex;
-  gap: 3px;
+  gap: 10px;
   justify-content: space-between;
 }
 
@@ -93,7 +93,7 @@ input::placeholder {
   background: #f6f6f6;
 }
 
-.elem a {
+.elem {
   color: #3c4242;
 }
 
