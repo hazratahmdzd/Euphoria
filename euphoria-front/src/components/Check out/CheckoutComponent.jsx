@@ -5,9 +5,41 @@ import { useTranslation } from 'react-i18next';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
+
+const data = [
+    {
+        imgUrl: "/img/OrderSummary/img1.png",
+        productName: "Blue Flower Print Crop Top",
+        count: 1,
+        color: "Yellow",
+        price: "29.00",
+        salePrice: 10,
+        shipping: 1
+    },
+    {
+        imgUrl: "/img/OrderSummary/img2.png",
+        productName: "Levender Hoodie",
+        count: 2,
+        color: "Levender",
+        price: "119.00",
+        salePrice: 5,
+        shipping: 1
+    },
+    {
+        imgUrl: "/img/OrderSummary/img3.png",
+        productName: "Black Sweatshirt",
+        count: 2,
+        color: "Black",
+        price: "123.00",
+        salePrice: 5,
+        shipping: 1
+    },
+]
+
 function CheckoutComponent() {
     const { t } = useTranslation();
     const [error, setError] = useState("")
+    const [useDifferentShippingAddress, setUseDifferentShippingAddress] = useState(false);
 
     async function handleSubmit(values) {
         try {
@@ -17,6 +49,17 @@ function CheckoutComponent() {
             console.log(err);
         }
     }
+
+    let subtotal = 0
+    let savingPrice = 0
+    let shippingPrice = 0
+    data.forEach((e) => {
+        subtotal += e.count * e.price
+        savingPrice += e.count * e.salePrice
+        shippingPrice += e.count * e.shipping
+    })
+
+    let total = subtotal - savingPrice - shippingPrice
     return (
         <div className={style.checkout}>
             <div className={style.urlList}>
@@ -120,7 +163,7 @@ function CheckoutComponent() {
 
                                 <div className={style.checkboxContainer}>
                                     <label>
-                                        <Field type="checkbox" name="saveInfo"  />
+                                        <Field type="checkbox" name="saveInfo" />
                                         {t("Save my information for a faster checkout")}
                                     </label>
                                 </div>
@@ -128,11 +171,80 @@ function CheckoutComponent() {
                         )}
                     </Formik>
 
-                    
+                    <div className={style.shippingAddress}>
+                        <h2>{t("Shipping Address")}</h2>
+                        <p>{t("Select the address that matches your card or payment method.")}</p>
+
+                        <div className={style.form}>
+                            <div className={style.radioButtonContainer}>
+                                <label htmlFor="sameAsBilling">
+                                    <input
+                                        type="radio"
+                                        id="sameAsBilling"
+                                        name="shippingOption"
+                                        value="sameAsBilling"
+                                        checked={!useDifferentShippingAddress}
+                                        onChange={() => setUseDifferentShippingAddress(false)}
+                                        className={style.radioButton}
+                                    /> {t("Same as Billing address")}</label>
+                            </div>
+                            <hr />
+                            <div className={style.radioButtonContainer}>
+                                <label htmlFor="differentShipping">
+                                    <input
+                                        type="radio"
+                                        id="differentShipping"
+                                        name="shippingOption"
+                                        value="differentShipping"
+                                        checked={useDifferentShippingAddress}
+                                        onChange={() => setUseDifferentShippingAddress(true)}
+                                        className={style.radioButton}
+                                    />{t("Use a different shipping address")}</label>
+                            </div>
+                            {useDifferentShippingAddress && (
+                                <div className={style.inputContainer}>
+                                    <label htmlFor="shippingAddress" className={style.inputLabel}>{t("Shipping Address:")}</label>
+                                    <input type="text" id="shippingAddress" name="shippingAddress" className={style.inputField} />
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </div>
 
                 <div className={style.orderSummary}>
+                    <h3>{t("Order Summary")}</h3>
 
+                    <div className={style.orderDiv}>
+                        {data.map((product, i) =>
+                            <div className={style.product} key={i}>
+                                <img src={product.imgUrl} alt="" />
+                                <div className={style.text}>
+                                    <h4>{product.productName} <span> x {product.count}</span></h4>
+                                    <h4>{t("Color")} <span>{product.color}</span></h4>
+                                </div>
+                                <h5>${product.price}</h5>
+                            </div>
+                        )}
+
+                        <div className={style.text}>
+                            <h4>{t("Subtotal")} <span>( {data.length} {t("items")} )</span></h4>
+                            <h4>${subtotal}.00</h4>
+                        </div>
+                        <div className={style.text}>
+                            <h4>{t("Savings")}</h4>
+                            <h4>-${savingPrice}.00</h4>
+                        </div>
+
+                        <div className={style.shipping}>
+                            <h4>{t("Shipping")}</h4>
+                            <h4>-${shippingPrice}.00</h4>
+                        </div>
+
+                        <div className={style.text}>
+                            <h4>{t("Total")}</h4>
+                            <h4>${total}.00</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
