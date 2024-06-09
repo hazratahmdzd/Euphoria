@@ -266,7 +266,7 @@ function CheckoutComponent() {
                                         name="paymentMethod"
                                         value="creditCard"
                                         checked={usePaymentMethod.card}
-                                        onChange={() => setUsePaymentMethod({card: true, cash: false, paypal: false})}
+                                        onChange={() => setUsePaymentMethod({ card: true, cash: false, paypal: false })}
                                         className={style.radioButton}
                                     />{t("Credit Card")}</label>
                                 <p>{t("We accept all major credit cards.")}</p>
@@ -301,7 +301,7 @@ function CheckoutComponent() {
                                         name="paymentMethod"
                                         value="cashOnDelivery"
                                         checked={usePaymentMethod.cash}
-                                        onChange={() => setUsePaymentMethod({card: false, cash: true, paypal: false})}
+                                        onChange={() => setUsePaymentMethod({ card: false, cash: true, paypal: false })}
                                         className={style.radioButton}
                                     /> {t("Cash on delivery")}</label>
                                 <p>{t("Pay with cash upon delivery.")}</p>
@@ -315,14 +315,14 @@ function CheckoutComponent() {
                                         name="paymentMethod"
                                         value="paypal"
                                         checked={usePaymentMethod.paypal}
-                                        onChange={() => setUsePaymentMethod({card: false, cash: false, paypal: true})}
+                                        onChange={() => setUsePaymentMethod({ card: false, cash: false, paypal: true })}
                                         className={style.radioButton}
                                     /> {t("PayPal")}</label>
                             </div>
                         </div>
                     </div>
 
-                    <button onClick={handleClick}>{t("Pay Now")}</button>
+                    <button id={style.submitbtn} onClick={handleClick}>{t("Pay Now")}</button>
                 </div>
 
                 <div className={style.orderSummary}>
