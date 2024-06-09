@@ -154,16 +154,18 @@
                 }
               }
             }
-            &>.cartprice{
+            &>.pdcartprice{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                width: 170%;
+                width: 220%;
+                height: 10vh;
+                background-color: #807D7E;
                 gap: 20px;
                 margin-top: 20px;
                 &>button:first-child{
                 display: flex;  
-                width: 60%;
+                // width: 50%;
                 margin-top: 0;
                 align-items: center;
                 justify-content: center;
@@ -174,7 +176,7 @@
                 }
                 }
                 &>button:nth-child(2){
-                width: 50%;
+                // width: 50%;
                 margin-top: 0;
                 background-color: white;
                 color:black;

@@ -188,7 +188,7 @@ const ProductDetail = () => {
                  </label>
                 </div>
               </div>
-              <div className={productDetailStyle.cartprice}>
+              <div className={productDetailStyle.pdcartprice}>
                   <button>
                     <img src={pdcartbtn} alt="cartbutton" />
                     <span>Add to cart</span>
