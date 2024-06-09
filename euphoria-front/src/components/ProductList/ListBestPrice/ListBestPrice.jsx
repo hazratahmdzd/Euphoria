@@ -15,64 +15,64 @@ function ListBestPrice() {
           </h2>
       </div>
       <div className={listBestPriceStyle.bodyCol}>
-        <table border={0}>
+        <table>
         <thead>
           <tr>
-            <th>Women's Clothing</th>
-            <th>Best Price</th>
+            <th>{t("Women's Clothing")}</th>
+            <th>{t("Best Price")}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Pick Any 4- Womens Plain T-shirt Combo</td>
-            <td>₹1099</td>
+            <td>{t("Pick Any 4- Womens Plain T-shirt Combo")}</td>
+            <td>{t("₹1099")}</td>
           </tr>
           <tr>
-            <td>Pick Any 4- Plain Womens Boxer Combo</td>
-            <td>₹1099</td>
+            <td>{t("Pick Any 4- Plain Womens Boxer Combo")}</td>
+            <td>{t("₹1099")}</td>
           </tr>
           <tr>
-            <td>Pick Any 4 - Women Plain Full Sleeve T-shirt Combo</td>
-            <td>₹1399</td>
+            <td>{t("Pick Any 4 - Women Plain Full Sleeve T-shirt Combo")}</td>
+            <td>{t("₹1399")}</td>
           </tr>
           <tr>
-            <td>Multicolor Checkered Long Casual Shirts for Women</td>
-            <td>₹499</td>
+            <td>{t("Multicolor Checkered Long Casual Shirts for Women")}</td>
+            <td>{t("₹499")}</td>
           </tr>
           <tr>
-            <td>Pick Any 2: Plain Boxy Casual Shirts for Women Combo</td>
-            <td>₹799</td>
+            <td>{t("Pick Any 2: Plain Boxy Casual Shirts for Women Combo")}</td>
+            <td>{t("₹799")}</td>
           </tr>
           <tr>
-            <td>Blue Floral Anarkali Kurti</td>
-            <td>₹599</td>
+            <td>{t("Blue Floral Anarkali Kurti")}</td>
+            <td>{t("₹599")}</td>
           </tr>
           <tr>
-            <td>Jade Black Narrow Cut Flexible Women Jeggings</td>
-            <td>₹998</td>
+            <td>{t("Jade Black Narrow Cut Flexible Women Jeggings")}</td>
+            <td>{t("₹998")}</td>
           </tr>
           <tr>
-            <td>Mustard-yellow Solid Straight-Fit Women Pant</td>
-            <td>₹449</td>
+            <td>{t("Mustard-yellow Solid Straight-Fit Women Pant")}</td>
+            <td>{t("₹449")}</td>
           </tr>
           <tr>
-            <td>Women Pants Combo - Pick Any 2</td>
-            <td>₹800</td>
+            <td>{t("Women Pants Combo - Pick Any 2")}</td>
+            <td>{t("₹800")}</td>
           </tr>
           <tr>
-            <td>Pista Green Solid Boxy Casual Shirts for Women</td>
-            <td>₹449</td>
+            <td>{t("Pista Green Solid Boxy Casual Shirts for Women")}</td>
+            <td>{t("₹449")}</td>
           </tr>
           <tr>
-            <td>Plain Burgundy Womens Boxer</td>
-            <td>₹349</td>
+            <td>{t("Plain Burgundy Womens Boxer")}</td>
+            <td>{t("₹349")}</td>
           </tr>
           <tr>
-            <td>Striped Front Tie Casual Shirts for Women</td>
-            <td>₹449</td>
+            <td>{t("Striped Front Tie Casual Shirts for Women")}</td>
+            <td>{t("₹449")}</td>
           </tr>
         </tbody>
-        </table>
+        </table>    
       </div>
       </div>
     </div>
