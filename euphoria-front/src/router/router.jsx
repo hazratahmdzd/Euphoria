@@ -55,7 +55,7 @@ export const Router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <Checkout />,
+    element: <AddtoCart />,
     children: [
       {
         path: "/cart/checkout",

@@ -123,7 +123,7 @@ const Addtocart = () => {
             <span>{t("Enter your coupon code if you have one")}</span>
             <div className={addCartStyle.inputBox}>
               <input type="text" />
-              <button>{t("Apply Coupon")}</button>
+              <button className="apply_button" >{t("Apply Coupon")}</button>
             </div>
             <Link>{t("Continue Shopping")}</Link>
           </div>
