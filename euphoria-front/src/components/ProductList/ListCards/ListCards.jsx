@@ -17,60 +17,63 @@ function ListCards() {
             </div>
             <ul className={listCardsStyle.lists}>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Tops")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
-                  
+                <div className={listCardsStyle.diV}>
                   {t("Printed T-shirts")}
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Plain T-shirts")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Kurti")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Boxers")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Full sleeve T-shirts")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Joggers")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Payjamas")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
               <li className={listCardsStyle.listItem}>
-                <div>
+                <div className={listCardsStyle.diV}>
                   {t("Jeans")}
-                  
+                  <img src="/img/rightIcon.png" alt="right icon png" />
                   </div>
                   </li>
             </ul>
+            <div className={listCardsStyle.price}>
+              <p>{t("Price")}</p>
+            </div>
         </div>
         <div className={listCardsStyle.rCol}>
           <div className={listCardsStyle.headCol}>
