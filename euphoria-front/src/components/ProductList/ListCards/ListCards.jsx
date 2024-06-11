@@ -72,7 +72,13 @@ function ListCards() {
                   </li>
             </ul>
             <div className={listCardsStyle.price}>
+              <>
               <p>{t("Price")}</p>
+              <img src="/img/upIcon.png" alt="up Icon" />
+              </>
+              <div className={listCardsStyle.priceOpen}>
+
+              </div>
             </div>
         </div>
         <div className={listCardsStyle.rCol}>
