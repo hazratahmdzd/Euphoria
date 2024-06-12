@@ -1,0 +1,10 @@
+.wishlist {
+    margin-top: 20vh;
+    width: 100%;
+    border: 1px solid red;
+
+    &>.wisContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}
