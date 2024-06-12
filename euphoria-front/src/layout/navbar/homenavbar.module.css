@@ -91,12 +91,13 @@ input::placeholder {
   justify-content: center;
   padding: 0 10px;
   background: #f6f6f6;
-}
-
-.elem {
   color: #3c4242;
 }
 
+.elem.active {
+  background-color: #8A33FD;
+  color: white;
+}
 
 .resp {
   display: flex;

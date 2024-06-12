@@ -3,7 +3,7 @@ import style from "./style.module.scss"
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 function AccountNavigation() {
-    const currentUser = "Jhanvi"
+    const currentUser = { name: "Jhanvi" }
     const { t } = useTranslation()
     const location = useLocation()
 
@@ -18,7 +18,7 @@ function AccountNavigation() {
                 {location.pathname === "/my-account/sign-out" ? <p>Sign out</p> : <></>}
             </div>
             <div className={style.navContainer}>
-                <h2><div></div> {t("Hello")} {currentUser}</h2>
+                <h2><div></div> {t("Hello")} {currentUser.name}</h2>
                 <p>{t("Welcome to your Account")}</p>
                 <ul className={style.accountNavLinks}>
                     <NavLink
