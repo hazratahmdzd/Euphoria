@@ -56,7 +56,7 @@ function HomeNavbar() {
             <NavLink to={'/wishlist'} className={navhomeStyle.elem}>
               <MdFavoriteBorder />
             </NavLink>
-            <NavLink to={'/auth/sign-in'} className={navhomeStyle.elem}>
+            <NavLink to={'/my-account'} className={navhomeStyle.elem}>
               <GoPerson />
             </NavLink>
             <NavLink to={'/cart'} className={navhomeStyle.elem}>
