@@ -53,13 +53,13 @@ function HomeNavbar() {
           </div>
           <Languageoption onChange={(e) => handleClick(e)} />
           <div className={navhomeStyle.elements}>
-            <NavLink to={'/wishlist'} className={navhomeStyle.elem}>
+            <NavLink to={'/my-account/wishlist'} className={({ isActive }) => isActive ? `${navhomeStyle.elem} ${navhomeStyle.active}` : navhomeStyle.elem}>
               <MdFavoriteBorder />
             </NavLink>
-            <NavLink to={'/auth/sign-in'} className={navhomeStyle.elem}>
+            <NavLink to={'/my-account/my-info'} className={({ isActive }) => isActive ? `${navhomeStyle.elem} ${navhomeStyle.active}` : navhomeStyle.elem}>
               <GoPerson />
             </NavLink>
-            <NavLink to={'/cart'} className={navhomeStyle.elem}>
+            <NavLink to={'/cart'} className={({ isActive }) => isActive ? `${navhomeStyle.elem} ${navhomeStyle.active}` : navhomeStyle.elem}>
               <BiCart />
             </NavLink>
           </div>

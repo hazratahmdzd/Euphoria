@@ -9,6 +9,8 @@ import Password from "../components/Auth/CreatePassword/password";
 import ProductList from "../pages/ProductList/ProductList";
 import Confirm from "../pages/ConfirmOrder/Confirm";
 import AddtoCart from "../pages/AddToCart/AddToCart";
+import { MyAccount } from "../pages/MyAccount/MyAccount";
+import Wishlist from "../components/Wishlist/Wishlist"
 
 export const Router = createBrowserRouter([
   {
@@ -46,6 +48,25 @@ export const Router = createBrowserRouter([
     ],
   },
   {
+    path: "/my-account",
+    element: <MyAccount />,
+    children: [
+      {
+        path: "/my-account/wishlist",
+        element: <Wishlist />
+      },
+      {
+        path: "/my-account/my-orders",
+      },
+      {
+        path: "/my-account/my-info",
+      },
+      {
+        path: "/my-account/sign-out",
+      },
+    ]
+  },
+  {
     path: "/women",
     element: <Women />,
   },
@@ -56,19 +77,17 @@ export const Router = createBrowserRouter([
   {
     path: "/cart",
     element: <AddtoCart />,
-    children: [
-      {
-        path: "/cart/checkout",
-        element: <Checkout />,
-      },
-    ],
+  },
+  {
+    path: "/cart/checkout",
+    element: <Checkout />,
   },
   {
     path: "/confirm-order",
     element: <Confirm />,
   },
   {
-    path: "/product list",
+    path: "/product-list",
     element: <ProductList />,
   },
   {
