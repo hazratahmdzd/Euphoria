@@ -1,12 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import addCartStyle from "./addtocart.module.css";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 const Addtocart = () => {
   const { t } = useTranslation();
-  const data = [
+  const navigate = useNavigate();
+  const initialData = [
     {
       imgUrl: "/img/OrderSummary/img1.png",
       productName: "Blue Flower Print Crop Top",
@@ -36,6 +37,46 @@ const Addtocart = () => {
     },
   ];
 
+  const [data, setData] = useState(initialData);
+  const [quantities, setQuantities] = useState(
+    initialData.map((item) => item.count)
+  );
+
+  useEffect(() => {
+    if (data.length === 0) {
+      navigate("/empty-cart");
+    }
+  }, [data, navigate]);
+
+  const subtotal = data.reduce(
+    (acc, item, index) => acc + item.price * quantities[index],
+    0
+  );
+
+  const shippingTotal = data.reduce((acc, item) => {
+    if (item.shipping !== "FREE") {
+      return acc + parseFloat(item.shipping.replace("$", ""));
+    }
+    return acc;
+  }, 0);
+
+  const grandTotal = subtotal + shippingTotal;
+
+  const handleQuantityChange = (index, change) => {
+    setQuantities((prevQuantities) => {
+      const newQuantities = [...prevQuantities];
+      newQuantities[index] = Math.max(1, newQuantities[index] + change);
+      return newQuantities;
+    });
+  };
+
+  const handleRemoveItem = (index) => {
+    setData((prevData) => prevData.filter((item, i) => i !== index));
+    setQuantities((prevQuantities) =>
+      prevQuantities.filter((quantity, i) => i !== index)
+    );
+  };
+
   return (
     <div className={addCartStyle.Addtocart}>
       <div className={addCartStyle.container}>
@@ -50,7 +91,7 @@ const Addtocart = () => {
         <div>
           <p>
             {t(
-              " Please fill in the fields below and click place order to complete your purchase!"
+              "Please fill in the fields below and click place order to complete your purchase!"
             )}
           </p>
           <p>
@@ -92,6 +133,12 @@ const Addtocart = () => {
                   <p className={addCartStyle.text}>
                     {t("Size")}: {item.size}
                   </p>
+                  <p className={addCartStyle.respText}>
+                    {t("Price")}: ${item.price}
+                  </p>
+                  <p className={addCartStyle.respText}>
+                    {t("Shipping")}: {item.shipping}
+                  </p>
                 </div>
               </div>
               <div className={addCartStyle.right}>
@@ -99,15 +146,28 @@ const Addtocart = () => {
                   ${item.price.toFixed(2)}
                 </span>
                 <div className={addCartStyle.quantity}>
-                  <span className={addCartStyle.cursor}>-</span>
-                  <span>{item.count}</span>
-                  <span className={addCartStyle.cursor}>+</span>
+                  <span
+                    className={addCartStyle.cursor}
+                    onClick={() => handleQuantityChange(index, -1)}
+                  >
+                    -
+                  </span>
+                  <span>{quantities[index]}</span>
+                  <span
+                    className={addCartStyle.cursor}
+                    onClick={() => handleQuantityChange(index, 1)}
+                  >
+                    +
+                  </span>
                 </div>
                 <span className={addCartStyle.shipping}>{item.shipping}</span>
                 <span className={addCartStyle.subtotal}>
-                  ${(item.price * item.count).toFixed(2)}
+                  ${(item.price * quantities[index]).toFixed(2)}
                 </span>
-                <span className={addCartStyle.cursor}>
+                <span
+                  className={addCartStyle.trash}
+                  onClick={() => handleRemoveItem(index)}
+                >
                   <FaRegTrashCan />
                 </span>
               </div>
@@ -116,21 +176,45 @@ const Addtocart = () => {
         </div>
       </div>
 
-      <div className={addCartStyle.shopping}>
-        <div className={addCartStyle.container}>
-          <div className={addCartStyle.discount}>
-            <p>{t("Discount Codes")}</p>
-            <span>{t("Enter your coupon code if you have one")}</span>
-            <div className={addCartStyle.inputBox}>
-              <input type="text" />
-              <button className="apply_button" >{t("Apply Coupon")}</button>
+      {data.length > 0 && (
+        <div className={addCartStyle.shopping}>
+          <div className={addCartStyle.container}>
+            <div className={addCartStyle.shoppingItems}>
+              <div className={addCartStyle.discount}>
+                <p>{t("Discount Codes")}</p>
+                <span>{t("Enter your coupon code if you have one")}</span>
+                <div className={addCartStyle.inputBox}>
+                  <input type="text" />
+                  <button className={addCartStyle.apply_button}>
+                    {t("Apply Coupon")}
+                  </button>
+                </div>
+                <Link to={"/product-list"}>{t("Continue Shopping")}</Link>
+              </div>
+              <div className={addCartStyle.checkout}>
+                <div className={addCartStyle.sub}>
+                  <span>{t("Sub Total")}</span>
+                  <span>${subtotal.toFixed(2)}</span>
+                </div>
+                <div className={addCartStyle.ship}>
+                  <span>{t("Shipping")}</span>
+                  <span>${shippingTotal.toFixed(2)}</span>
+                </div>
+                <div className={addCartStyle.grand}>
+                  <span>{t("Grand Total")}</span>
+                  <span>${grandTotal.toFixed(2)}</span>
+                </div>
+                <div className={addCartStyle.line}></div>
+                <div className={addCartStyle.linkButton}>
+                  <Link to={"/cart/checkout"} className={addCartStyle.proceed}>
+                    Proceed to Checkout
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link>{t("Continue Shopping")}</Link>
           </div>
-          <div className={addCartStyle.checkout}></div>
-          <div></div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

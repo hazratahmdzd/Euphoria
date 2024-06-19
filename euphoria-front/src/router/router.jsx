@@ -10,7 +10,8 @@ import ProductList from "../pages/ProductList/ProductList";
 import Confirm from "../pages/ConfirmOrder/Confirm";
 import AddtoCart from "../pages/AddToCart/AddToCart";
 import { MyAccount } from "../pages/MyAccount/MyAccount";
-import Wishlist from "../components/Wishlist/Wishlist"
+import Wishlist from "../components/Wishlist/Wishlist";
+import EmptyCart from "../pages/EmptyCart/EmptyCart";
 
 export const Router = createBrowserRouter([
   {
@@ -53,7 +54,7 @@ export const Router = createBrowserRouter([
     children: [
       {
         path: "/my-account/wishlist",
-        element: <Wishlist />
+        element: <Wishlist />,
       },
       {
         path: "/my-account/my-orders",
@@ -64,7 +65,7 @@ export const Router = createBrowserRouter([
       {
         path: "/my-account/sign-out",
       },
-    ]
+    ],
   },
   {
     path: "/women",
@@ -93,5 +94,9 @@ export const Router = createBrowserRouter([
   {
     path: "/addtocart",
     element: <AddtoCart />,
+  },
+  {
+    path: "/empty-cart",
+    element: <EmptyCart />,
   },
 ]);
