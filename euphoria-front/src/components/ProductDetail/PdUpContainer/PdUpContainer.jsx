@@ -83,7 +83,6 @@ const PdUpContainer = () => {
               slidesToShow: 3,
               slidesToScroll: 3,
               infinite: true,
-              dots: true,
             },
           },
           {
@@ -124,7 +123,6 @@ const PdUpContainer = () => {
           </div>
           <div className={pdUpStyle.pdRightImg}>
             <img
-              className={pdUpStyle.pdrImg}
               src={ravenhoodieblack}
               alt="ravenhoodieblack"
             />

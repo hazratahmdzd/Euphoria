@@ -1,19 +1,18 @@
 .upContainer{
     display: flex;
     width: 100%;
-    height: 100vh;
-    margin-bottom: 60px;
+    min-height: 100vh;
+    margin-bottom: 120px;
+    padding-top: 65px;
     &>.pdImages{
         width: 50%;
-        height: 90vh;
         display: flex;
         &>.pdLeftImg{
-        background-color: #F6F6F6;            ;
+        background-color: #F6F6F6;            
         width: 40%;
-        height: 97vh;
         &>.pdSliderContainer{
             width: 100%;
-            height: 70vh;
+            height: 80vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -33,21 +32,18 @@
         }
         &>.pdRightImg{
             width: 60%;
-            height: 97vh;
-            &>.pdrImg{
+            &>img{
                 width: 100%;
+                height: 100%;
             }
         }
     }
     &>.pdTexts{
-        width: 50%;
-        height: 100vh;
+        width: 40%;
         display: flex;
         justify-content: center;
         align-items: center;
         &>.pdInTexts{
-            width: 80%;
-            height: 88vh;
             &>.pdtextlinks{
                 display: flex;
                 align-items: center;
@@ -79,8 +75,8 @@
          }
         }
         &>.pdsizes{
-            width: 40%;
-            height: 10vh;
+            width: 50%;
+            min-height: 10vh;
             margin-top: 30px;
             &>.inpdsizes{
              display: flex;
@@ -101,7 +97,7 @@
             &>.sizes{
                 &>input{
                     width: 25%;
-                    height: 5vh;
+                    min-height: 5vh;
                     background-color: white;
                     color: black;
                     border: 1px solid grey;
@@ -129,18 +125,18 @@
                 margin-top: 10px;
             &>label{
                 width: 100%;
-                height: 6vh;
+                min-height: 6vh;
                 text-align: center;
                 display: inline-flex;
                 justify-content: center;align-items: center;
             &>input{
                 width: 25px;
-                height: 25px;
+                min-height: 25px;
                 position: relative;
             }
             &>.custom_radio{
                 width: 25px;
-                height: 25px;
+                min-height: 25px;
                 border-radius: 50%;
                 cursor: pointer;
                 display: inline-block;
@@ -164,7 +160,7 @@
             border: none;
             display: flex;  
             width: 60%;
-            height: 46px;
+            min-height: 46px;
             color: white;
             margin-top: 0;
             align-items: center;
@@ -177,7 +173,7 @@
             }
             &>button:nth-child(2){
             width: 50%;
-            height: 46px;
+            min-height: 46px;
             margin-top: 0;
             font-size: 18px;
             background-color: white;
@@ -191,11 +187,11 @@
         }
         &>hr{
             margin-top: 30px;
-            width: 250%;
+            width: 200%;
         }
         &>.pdshippinginfo{
             margin-top: 20px;
-            width: 240%;
+            width: 190%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 13px;
@@ -203,9 +199,67 @@
                 display: flex;
                 align-items: center;
                 gap: 7px;
+                font-size: 15px;
             }
         }
         }
     }
 }
 }
+
+@media only screen and (max-width: 1014px) {
+    .upContainer{
+        font-size: 14px;
+        min-height: 80vh;
+        gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 758px) {
+    .upContainer{
+        font-size: 12px;
+
+        &>.pdImages{
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            &>.pdLeftImg{
+                background-color: #F6F6F6;            
+                width: 100%;
+                height: 50%;
+                padding-top: 5px;
+                &>.pdSliderContainer{
+                    width: 100%;
+                    height: 25vh;
+                    &>.pdsldr{
+                    width: 70px;
+                    height: 40vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &>.pdSlider{
+                    width: 300px;
+                    height: 40vh;
+                    }
+                    }
+                }
+                }
+                &>.pdRightImg{
+                    width: 100%;
+                    height: 50%;
+                    &>img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            &>.pdTexts{
+                width: 70%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+    }
+}
+
+

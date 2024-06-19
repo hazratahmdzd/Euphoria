@@ -16,6 +16,6 @@ const ProductDetail = () => {
 export default ProductDetail;
 
 //* SLICK-SLIDER-IN ARROW ICON-LARINI NECE STYLE ETMEK?
-//* SLICK-SLIDER-IN ÖLÇÜSÜNÜ BÖYÜTMƏK NECƏ?
 //* price-in 00-lari gorunmur
-//* pdContaineri nece style edim import edilmir
+//* en kicik olculerde responsivlik niye pozulur?
+//* dinamikliyi nece etmek lazim?
