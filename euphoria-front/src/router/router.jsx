@@ -13,6 +13,7 @@ import { MyAccount } from "../pages/MyAccount/MyAccount";
 import Wishlist from "../components/Wishlist/Wishlist";
 import EmptyCart from "../pages/EmptyCart/EmptyCart";
 import PersonalInfo from "../components/PersonalInfo/PersonalInfo";
+import NotFound from "../components/NotFound/NotFound";
 
 export const Router = createBrowserRouter([
   {
@@ -101,4 +102,8 @@ export const Router = createBrowserRouter([
     path: "/empty-cart",
     element: <EmptyCart />,
   },
+  {
+    path: "*",
+    element: <NotFound />
+  }
 ]);
