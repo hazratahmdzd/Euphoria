@@ -56,7 +56,7 @@ function HomeNavbar() {
             <NavLink to={'/my-account/wishlist'} className={({ isActive }) => isActive ? `${navhomeStyle.elem} ${navhomeStyle.active}` : navhomeStyle.elem}>
               <MdFavoriteBorder />
             </NavLink>
-            <NavLink to={'/my-account/my-info'} className={({ isActive }) => isActive ? `${navhomeStyle.elem} ${navhomeStyle.active}` : navhomeStyle.elem}>
+            <NavLink to={'/my-account/personal-info'} className={({ isActive }) => isActive ? `${navhomeStyle.elem} ${navhomeStyle.active}` : navhomeStyle.elem}>
               <GoPerson />
             </NavLink>
             <NavLink to={'/cart'} className={({ isActive }) => isActive ? `${navhomeStyle.elem} ${navhomeStyle.active}` : navhomeStyle.elem}>
