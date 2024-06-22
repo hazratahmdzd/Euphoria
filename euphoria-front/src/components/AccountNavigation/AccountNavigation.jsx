@@ -17,7 +17,7 @@ function AccountNavigation() {
                 <Link to={"/my-account"}>{t("My Account")} <img src="/img/arrow.png" alt="" /></Link>
                 {location.pathname === "/my-account/my-orders" ? <p>My Orders</p> : <></>}
                 {location.pathname === "/my-account/wishlist" ? <p>Wishlist</p> : <></>}
-                {location.pathname === "/my-account/my-info" ? <p>My info</p> : <></>}
+                {location.pathname === "/my-account/personal-info" ? <p>Personal Info</p> : <></>}
                 {location.pathname === "/my-account/sign-out" ? <p>Sign out</p> : <></>}
             </div>
 
@@ -42,7 +42,7 @@ function AccountNavigation() {
                             <img src="/img/AccountNav/heart.png" alt="" /> {t("Wishlist")}</NavLink>
                         <NavLink
                             className={({ isActive }) => isActive ? `${style.navLink} ${style.active}` : style.navLink}
-                            to={"/my-account/my-info"} onClick={() => setMenu(!menu)}>
+                            to={"/my-account/personal-info"} onClick={() => setMenu(!menu)}>
                             <img src="/img/AccountNav/user.png" alt="" /> {t("My info")}</NavLink>
                         <NavLink
                             className={({ isActive }) => isActive ? `${style.navLink} ${style.active}` : style.navLink}
@@ -66,7 +66,7 @@ function AccountNavigation() {
                         to={"/my-account/wishlist"}><img src="/img/AccountNav/heart.png" alt="" /> {t("Wishlist")}</NavLink>
                     <NavLink
                         className={({ isActive }) => isActive ? `${style.navLink} ${style.active}` : style.navLink}
-                        to={"/my-account/my-info"}><img src="/img/AccountNav/user.png" alt="" /> {t("My info")}</NavLink>
+                        to={"/my-account/personal-info"}><img src="/img/AccountNav/user.png" alt="" /> {t("My info")}</NavLink>
                     <NavLink
                         className={({ isActive }) => isActive ? `${style.navLink} ${style.active}` : style.navLink}
                         to={"/my-account/sign-out"}><img src="/img/AccountNav/logout.png" alt="" /> {t("Sign out")}</NavLink>

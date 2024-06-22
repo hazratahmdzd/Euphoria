@@ -12,6 +12,7 @@ import AddtoCart from "../pages/AddToCart/AddToCart";
 import { MyAccount } from "../pages/MyAccount/MyAccount";
 import Wishlist from "../components/Wishlist/Wishlist";
 import EmptyCart from "../pages/EmptyCart/EmptyCart";
+import PersonalInfo from "../components/PersonalInfo/PersonalInfo";
 
 export const Router = createBrowserRouter([
   {
@@ -60,7 +61,8 @@ export const Router = createBrowserRouter([
         path: "/my-account/my-orders",
       },
       {
-        path: "/my-account/my-info",
+        path: "/my-account/personal-info",
+        element: <PersonalInfo />,
       },
       {
         path: "/my-account/sign-out",
