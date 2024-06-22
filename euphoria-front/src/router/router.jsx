@@ -13,7 +13,9 @@ import { MyAccount } from "../pages/MyAccount/MyAccount";
 import Wishlist from "../components/Wishlist/Wishlist";
 import EmptyCart from "../pages/EmptyCart/EmptyCart";
 import PersonalInfo from "../components/PersonalInfo/PersonalInfo";
+import DeliveryAddress from "../components/DeliveryAddress/DeliveryAddress";
 import NotFound from "../components/NotFound/NotFound";
+
 
 export const Router = createBrowserRouter([
   {
@@ -67,6 +69,10 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/my-account/sign-out",
+      },
+      {
+        path: "/my-account/my-info",
+        element:<DeliveryAddress/>
       },
     ],
   },
