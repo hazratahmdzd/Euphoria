@@ -13,6 +13,8 @@ import { MyAccount } from "../pages/MyAccount/MyAccount";
 import Wishlist from "../components/Wishlist/Wishlist";
 import EmptyCart from "../pages/EmptyCart/EmptyCart";
 import PersonalInfo from "../components/PersonalInfo/PersonalInfo";
+import Myorders from "../components/MyOrders/Myorders";
+import OrderDetails from "../components/OrderDetails/OrderDetails";
 
 export const Router = createBrowserRouter([
   {
@@ -59,6 +61,13 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/my-account/my-orders",
+        element: <Myorders />,
+        children: [
+          {
+            path: "/my-account/my-orders/order-details",
+            element: <OrderDetails />,
+          },
+        ],
       },
       {
         path: "/my-account/personal-info",
