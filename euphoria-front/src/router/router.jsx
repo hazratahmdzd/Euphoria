@@ -15,6 +15,9 @@ import EmptyCart from "../pages/EmptyCart/EmptyCart";
 import PersonalInfo from "../components/PersonalInfo/PersonalInfo";
 import Myorders from "../components/MyOrders/Myorders";
 import OrderDetails from "../components/OrderDetails/OrderDetails";
+import DeliveryAddress from "../components/DeliveryAddress/DeliveryAddress";
+import NotFound from "../components/NotFound/NotFound";
+
 
 export const Router = createBrowserRouter([
   {
@@ -76,6 +79,10 @@ export const Router = createBrowserRouter([
       {
         path: "/my-account/sign-out",
       },
+      {
+        path: "/my-account/my-info",
+        element:<DeliveryAddress/>
+      },
     ],
   },
   {
@@ -110,4 +117,8 @@ export const Router = createBrowserRouter([
     path: "/empty-cart",
     element: <EmptyCart />,
   },
+  {
+    path: "*",
+    element: <NotFound />
+  }
 ]);
