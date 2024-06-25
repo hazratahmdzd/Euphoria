@@ -91,6 +91,20 @@
   display: "flex";
   flex-direction: row;
 }
+.orderButton {
+  background-color: #8a33fd;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  height: 40px;
+  width: 130px;
+  margin: 20px 30px;
+  text-align: center;
+  font: 500 1em sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 @media only screen and (max-width: 815px) {
   .itemIndex a {
     width: 30%;

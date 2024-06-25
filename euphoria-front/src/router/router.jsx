@@ -18,7 +18,6 @@ import OrderDetails from "../components/OrderDetails/OrderDetails";
 import DeliveryAddress from "../components/DeliveryAddress/DeliveryAddress";
 import NotFound from "../components/NotFound/NotFound";
 
-
 export const Router = createBrowserRouter([
   {
     path: "/",
@@ -65,12 +64,10 @@ export const Router = createBrowserRouter([
       {
         path: "/my-account/my-orders",
         element: <Myorders />,
-        children: [
-          {
-            path: "/my-account/my-orders/order-details",
-            element: <OrderDetails />,
-          },
-        ],
+      },
+      {
+        path: "/my-account/my-orders/order-details",
+        element: <OrderDetails />,
       },
       {
         path: "/my-account/personal-info",
@@ -81,7 +78,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/my-account/my-info",
-        element:<DeliveryAddress/>
+        element: <DeliveryAddress />,
       },
     ],
   },
@@ -119,6 +116,6 @@ export const Router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <NotFound />
-  }
+    element: <NotFound />,
+  },
 ]);
