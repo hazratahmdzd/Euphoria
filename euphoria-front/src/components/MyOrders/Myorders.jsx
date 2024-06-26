@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import orderStyle from "./myorders.module.css";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import orderStyle from "./myorders.module.css";
 
 const Myorders = () => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("active");
+  const navigate = useNavigate();
 
   const orders = {
     active: [
       {
-        orderNo: "#123456789",
+        orderNo: "#123456781",
         orderDate: "2 June 2023 2:40 PM",
         estimatedDeliveryDate: "8 June 2023",
         orderStatus: "In progress",
@@ -26,7 +27,7 @@ const Myorders = () => {
         ],
       },
       {
-        orderNo: "#123456789",
+        orderNo: "#123456782",
         orderDate: "2 June 2023 2:40 PM",
         estimatedDeliveryDate: "8 June 2023",
         orderStatus: "In progress",
@@ -42,10 +43,10 @@ const Myorders = () => {
         ],
       },
       {
-        orderNo: "#123456789",
+        orderNo: "#123456783",
         orderDate: "2 June 2023 2:40 PM",
         estimatedDeliveryDate: "8 June 2023",
-        orderStatus: "In progress",
+        orderStatus: "Delivered",
         paymentMethod: "Cash on delivery",
         items: [
           {
@@ -61,22 +62,28 @@ const Myorders = () => {
     cancelled: [],
     completed: [
       {
-        orderNo: "#123456789",
+        orderNo: "#123456783",
         orderDate: "2 June 2023 2:40 PM",
         estimatedDeliveryDate: "8 June 2023",
-        orderStatus: "Shipped",
+        orderStatus: "Delivered",
         paymentMethod: "Cash on delivery",
         items: [
           {
-            name: "Printed blue & white Cote",
-            colour: "White",
+            name: "Blue Shirt",
+            colour: "Blue",
             qty: 1,
-            total: "$143.00",
-            img: "/img/OrderSummary/order2.jpg",
+            total: "$93.00",
+            img: "/img/OrderSummary/order3.jpg",
           },
         ],
       },
     ],
+  };
+
+  const handleViewDetails = (order) => {
+    navigate("/my-account/my-orders/order-details", {
+      state: { order, orders: orders[activeTab] },
+    });
   };
 
   return (
@@ -176,9 +183,12 @@ const Myorders = () => {
                       </span>
                     </div>
                   </div>
-                  <Link to={"/my-account/my-orders/order-details"}>
+                  <button
+                    className={orderStyle.orderButton}
+                    onClick={() => handleViewDetails(order)}
+                  >
                     View Details
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}
