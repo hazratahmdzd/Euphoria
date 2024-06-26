@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import axios from "axios"
+import { axiosFunction } from '../../../api';
+import { useNavigate } from 'react-router-dom';
 
 function Signin() {
   const [inputType, setInputType] = useState('password');
@@ -21,6 +23,8 @@ function Signin() {
 
   console.log(userData)
 
+  const navigate = useNavigate();
+
   const getUser = async () => {
     try {
       const response = await axios({
@@ -32,12 +36,19 @@ function Signin() {
         }
       })
 
+      // const res = await axiosFunction("POST", "/user/login", userData)
+
       console.log(response);
       setUserData({ email: "", password: "" })
+      console.log(response.data.token)
+      localStorage.setItem('access_token', response.data.token)
+      navigate("/");
     } catch(err) {
       console.log("There have an error: ", err.message);
     }
   }
+
+  
 
   return (
     <div className={signinStyle.signin}>
@@ -73,6 +84,7 @@ function Signin() {
           <p>{t("Don’t have an account?")} <Link to={"/auth/sign-up"}>{t("Sign up")}</Link> </p>
         </div>
       </div>
+      <input type="file" className='file' onChange={(e) => console.log(e.target.files[0])} />
     </div>
   )
 }

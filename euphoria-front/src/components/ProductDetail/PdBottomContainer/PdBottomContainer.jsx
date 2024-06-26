@@ -2,26 +2,32 @@ import React from "react";
 import pdBotStyle from "./PdBottomContainer.module.scss";
 import ProductCard from "../../ProductCard/ProductCard";
 import { useState,useEffect } from "react";
-import { getAllProducts } from "../../../api/products";
+// import { getAllProducts } from "../../../api/products";
+import { axiosFunction } from "../../../api";
 
 const PdBottomContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-   const getProducts = async () => {
-    setLoading(true);
-    try {
-      const data = await getAllProducts();
-      setProducts(data);
-      console.log(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-   };
-    getProducts();
+  // useEffect(() => {
+  //  const getProducts = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const data = await getAllProducts();
+  //     setProducts(data);
+  //     console.log(data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  //  };
+  //   getProducts();
+  // }, [])
+
+  useEffect(async() => {
+    const response = await axiosFunction("GET", '/product');
+    console.log(response);
   }, [])
 
 
