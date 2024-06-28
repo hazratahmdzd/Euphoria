@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import { IoCloseOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import axios from "axios"
 
 const data = [
   {
@@ -46,17 +47,45 @@ function Wishlist() {
     setProducts(updatedProducts);
   };
 
+
+  //With api
+  // const [wishlistData, setWishlistData] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const URL = "https://euphoria-ecommerce.onrender.com/api/wishlist"
+
+  // const getData = async () => {
+  //   setIsLoading(true);
+  //   const response = await axios.get(URL);
+  //   setWishlistData(response.data);
+  //   setIsLoading(false);
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // const reversedItems = [...wishlistData].reverse();
+
+  // async function deleteItemFromWishlist(id) {
+  //   let response = await axios.delete(URL + "/" + id)
+  //   getData()
+  // }
+
   return (
     <div className={style.wishlist}>
       {products.length !== 0 ? <h2>{t("Wishlist")}</h2> : <></>}
       {products.length !== 0 ? (
         <div className={style.wisContainer}>
+          {/* {isLoading && <img style={{ width: "150px", height: "150px", objectFit: "contain", margin: "100px auto" }} src="https://superstorefinder.net/support/wp-content/uploads/2018/01/orange_circles.gif" alt="" />} */}
           {products.map((product, i) => (
             <div className={style.product} key={i}>
               <div className={style.left}>
                 <IoCloseOutline
                   onClick={() => handleDelete(product.productName)}
                 />
+                {/* <IoCloseOutline
+                  onClick={() => deleteItemFromWishlist(product.id)}
+                /> */}
                 <img src={product.imgUrl} alt="" />
                 <div className={style.text}>
                   <h3>{product.productName}</h3>

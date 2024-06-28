@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./style.module.scss";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -9,6 +9,7 @@ function AccountNavigation() {
   const { t } = useTranslation();
   const location = useLocation();
   const [menu, setMenu] = useState(false);
+  const navigate = useNavigate()
 
   return (
     <div className={style.accountNav}>
@@ -82,15 +83,23 @@ function AccountNavigation() {
             >
               <img src="/img/AccountNav/user.png" alt="" /> {t("My info")}
             </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? `${style.navLink} ${style.active}` : style.navLink
-              }
-              to={"/my-account/sign-out"}
-              onClick={() => setMenu(!menu)}
+            <p
+              className={style.navLink}
+              style={{ cursor: "pointer" }}
+              onClick={(e) => {
+                e.preventDefault()
+                setMenu(!menu)
+                const userConfirmed = window.confirm("Are you sure you want to log out?");
+                if (userConfirmed) {
+                  localStorage.removeItem("access_token");
+                  navigate("/");
+                } else {
+                  navigate("/my-account/personal-info");
+                }
+              }}
             >
               <img src="/img/AccountNav/logout.png" alt="" /> {t("Sign out")}
-            </NavLink>
+            </p>
           </ul>
         </div>
       </div>
@@ -126,14 +135,22 @@ function AccountNavigation() {
           >
             <img src="/img/AccountNav/user.png" alt="" /> {t("My info")}
           </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? `${style.navLink} ${style.active}` : style.navLink
-            }
-            to={"/my-account/sign-out"}
+          <p
+            className={style.navLink}
+            style={{ cursor: "pointer" }}
+            onClick={(e) => {
+              e.preventDefault()
+              const userConfirmed = window.confirm("Are you sure you want to log out?");
+              if (userConfirmed) {
+                localStorage.removeItem("access_token");
+                navigate("/");
+              } else {
+                navigate("/my-account/personal-info");
+              }
+            }}
           >
             <img src="/img/AccountNav/logout.png" alt="" /> {t("Sign out")}
-          </NavLink>
+          </p>
         </ul>
       </div>
     </div>
