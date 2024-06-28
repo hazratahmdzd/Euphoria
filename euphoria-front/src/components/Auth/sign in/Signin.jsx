@@ -24,9 +24,20 @@ function Signin() {
   console.log(userData)
 
   const navigate = useNavigate();
+  function wait() {
+    let button = document.getElementById('submitbtn');
+    button.style.cursor = 'wait'
+    document.body.style.cursor = 'wait'
+  }
+  function defaultCursor() {
+    let button = document.getElementById('submitbtn');
+    button.style.cursor = 'pointer'
+    document.body.style.cursor = 'default'
+  }
 
   const getUser = async () => {
     try {
+      wait()
       const response = await axios({
         method: "POST",
         url: "https://euphoria-ecommerce.onrender.com/api/user/login",
@@ -43,12 +54,12 @@ function Signin() {
       console.log(response.data.token)
       localStorage.setItem('access_token', response.data.token)
       navigate("/");
-    } catch(err) {
+      defaultCursor()
+    } catch (err) {
       console.log("There have an error: ", err.message);
+      defaultCursor()
     }
   }
-
-  
 
   return (
     <div className={signinStyle.signin}>
@@ -67,7 +78,7 @@ function Signin() {
 
         <div className={signinStyle.input}>
           <p>{t("User name or email address")}</p>
-          <input type="text" id='email' value={userData.email} onChange={(e)=> setUserData({...userData, email: e.target.value})} />
+          <input type="text" id='email' value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
         </div>
 
         <div className={signinStyle.input}>
@@ -75,16 +86,15 @@ function Signin() {
             <p>{t("Password")}</p>
             {inputType === 'password' ? <p style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: "5px" }} onClick={toggleInputType}><FaEye /> {t("Show")}</p> : <p style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: "5px" }} onClick={toggleInputType}><FaEyeSlash /> {t("Hide")}</p>}
           </div>
-          <input type={inputType} id='password' value={userData.password} onChange={(e) => setUserData({...userData, password: e.target.value})} />
+          <input type={inputType} id='password' value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })} />
           <div style={{ width: "100%", textAlign: "end", marginTop: "10px" }}><Link to={"/auth/reset-password"}>{t("Forget your password")}</Link></div>
         </div>
 
         <div className={signinStyle.end}>
-          <button onClick={getUser}>{t("Sign In")}</button>
+          <button id='submitbtn' onClick={getUser}>{t("Sign In")}</button>
           <p>{t("Don’t have an account?")} <Link to={"/auth/sign-up"}>{t("Sign up")}</Link> </p>
         </div>
       </div>
-      <input type="file" className='file' onChange={(e) => console.log(e.target.files[0])} />
     </div>
   )
 }
