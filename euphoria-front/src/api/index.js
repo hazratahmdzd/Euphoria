@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-// const apiClient = axios.create({
-//     baseURL: 'https://euphoria-ecommerce.onrender.com/api',
-// });
-
 const baseURL = 'euphoria-ecommerce.onrender.com/api'
 
 export const axiosFunction = async ( method, endpoint, data ) => {
@@ -19,6 +15,3 @@ export const axiosFunction = async ( method, endpoint, data ) => {
         console.log(err.message)
     }
 }
-
-
-// export default apiClient;
