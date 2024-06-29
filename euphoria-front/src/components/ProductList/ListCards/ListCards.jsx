@@ -2,6 +2,7 @@ import React from "react";
 import listCardsStyle from "./ListCards.module.scss";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import Filter from "../../Filter/Filter";
 
 function ListCards() {
   const { t } = useTranslation();
@@ -9,7 +10,8 @@ function ListCards() {
   return (
     <div className={listCardsStyle.container}>
       <div className={listCardsStyle.row}>
-        <div className={listCardsStyle.lCol}>
+        <Filter/>
+        {/* <div className={listCardsStyle.lCol}>
           <div className={listCardsStyle.filter}>
             <p>{t("Filter")}</p>
             <img src="/img/filter.png" alt="filter png picture" />
@@ -262,7 +264,7 @@ function ListCards() {
               </div>
             </li>
           </ul>
-        </div>
+        </div> */}
         <div className={listCardsStyle.rCol}>
           <div className={listCardsStyle.headCol}>
             <h6>{t("Women’s Clothing")}</h6>
@@ -272,14 +274,16 @@ function ListCards() {
             </div>
           </div>
           <div className={listCardsStyle.cards}>
-            <Link to={"/"} className={listCardsStyle.card}>
+            <div className={listCardsStyle.card}>
             <div className={listCardsStyle.heart}>
               <img src="/img/heartIcon.png" alt="heart icon png" />
             </div>
+            <Link to={''}>
               <img
                 src="/img/CategoriesForWomen/img_1.png"
                 alt="product card list image or picture"
               />
+              </Link>
               <div className={listCardsStyle.cardContext}>
                 <div>
                   <p className={listCardsStyle.cardTitle}>
@@ -291,7 +295,7 @@ function ListCards() {
                 </div>
                 <div className={listCardsStyle.cardPrice}>$123.00</div>
               </div>
-            </Link>
+            </div>
             <Link to={"/"} className={listCardsStyle.card}>
             <div className={listCardsStyle.heart}>
               <img src="/img/heartIcon.png" alt="heart icon png" />

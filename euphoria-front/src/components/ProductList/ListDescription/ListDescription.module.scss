@@ -60,6 +60,9 @@
         line-height: 33.5px;
         letter-spacing: 0.02em;
       }
+      &>a:hover{
+        color: var(--color-charcoalGrey);
+      }
       & > .col {
         width: 100%;
         display: flex;
