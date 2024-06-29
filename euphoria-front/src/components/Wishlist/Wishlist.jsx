@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 import { IoCloseOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
 const data = [
   {
@@ -46,7 +46,6 @@ function Wishlist() {
     );
     setProducts(updatedProducts);
   };
-
 
   //With api
   // const [wishlistData, setWishlistData] = useState([]);

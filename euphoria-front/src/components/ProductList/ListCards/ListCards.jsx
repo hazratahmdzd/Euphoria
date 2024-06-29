@@ -278,7 +278,10 @@ function ListCards() {
             <div className={listCardsStyle.heart}>
               <img src="/img/heartIcon.png" alt="heart icon png" />
             </div>
-            <Link to={''}>
+            <Link to={"/"} className={listCardsStyle.card}>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_1.png"
                 alt="product card list image or picture"
@@ -297,9 +300,9 @@ function ListCards() {
               </div>
             </div>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_2.png"
                 alt="product card list image or picture"
@@ -317,9 +320,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_3.png"
                 alt="product card list image or picture"
@@ -337,9 +340,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_4.png"
                 alt="product card list image or picture"
@@ -357,9 +360,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_5.png"
                 alt="product card list image or picture"
@@ -377,9 +380,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_6.png"
                 alt="product card list image or picture"
@@ -397,9 +400,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_7.png"
                 alt="product card list image or picture"
@@ -417,9 +420,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_8.png"
                 alt="product card list image or picture"
@@ -437,9 +440,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_9.png"
                 alt="product card list image or picture"
@@ -457,9 +460,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_10.png"
                 alt="product card list image or picture"
@@ -477,9 +480,9 @@ function ListCards() {
               </div>
             </Link>
             <Link to={"/"} className={listCardsStyle.card}>
-            <div className={listCardsStyle.heart}>
-              <img src="/img/heartIcon.png" alt="heart icon png" />
-            </div>
+              <div className={listCardsStyle.heart}>
+                <img src="/img/heartIcon.png" alt="heart icon png" />
+              </div>
               <img
                 src="/img/CategoriesForWomen/img_11.png"
                 alt="product card list image or picture"
