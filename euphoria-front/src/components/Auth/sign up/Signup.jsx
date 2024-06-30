@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import signupStyle from "./signup.module.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { axiosFunction } from "../../../api/index";
 
 const Signup = () => {
   const [inputType, setInputType] = useState("password");
@@ -43,15 +44,23 @@ const Signup = () => {
       setLoading(true);
       setError(null);
       try {
-        const register = await axios.post(
-          "https://euphoria-ecommerce.onrender.com/api/user/register",
-          {
-            email: values.email,
-            password: values.password,
-          }
-        );
+        // const register = await axios.post(
+        //   "https://euphoria-ecommerce.onrender.com/api/user/register",
+        //   {
+        //     email: values.email,
+        //     password: values.password,
+        //   }
+        // );
+        const response = await axiosFunction("POST", "/user/register", {
+          ...formik.values,
+          role: "ADMIN",
+        });
+        // const response = axios
         setLoading(false);
-        navigate("/auth/sign-in");
+        // navigate("/auth/sign-in");
+        response && console.log("token: ", response.token);
+        localStorage.setItem("access_token", response.token);
+        navigate("/");
       } catch (err) {
         setLoading(false);
         setError(t("Registration failed. Please try again."));
