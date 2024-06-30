@@ -72,8 +72,8 @@ input::placeholder {
   text-decoration: none;
 }
 
-.active {
-  color: #3c4242;
+.list .active {
+  color: #3c4242 !important;
 }
 
 .elements {
@@ -94,9 +94,9 @@ input::placeholder {
   color: #3c4242;
 }
 
-.elem.active {
-  background-color: #8A33FD;
-  color: white;
+.elements .active {
+  background-color: #8a33fd !important;
+  color: white !important;
 }
 
 .resp {
