@@ -2,11 +2,11 @@ import React from "react";
 import productCardStyle from "./ProductCard.module.scss";
 import hearticon from "/img/DetailPageimgs/pdhearticon.png";
 
-const ProductCard = ({imgurl,productName,brandName,amount,currency}) => {
+const ProductCard = ({picture,productName,brandName,amount,currency}) => {
   return (
       <div className={productCardStyle.pdproductcard}>
         <div className={productCardStyle.pdcardimg}>
-          <img src={imgurl} alt={productName} />
+          <img src={picture} alt={productName} />
           <div className={productCardStyle.pdwishicon}>
             <img
               src={hearticon}

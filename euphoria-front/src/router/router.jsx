@@ -17,6 +17,9 @@ import Myorders from "../components/MyOrders/Myorders";
 import OrderDetails from "../components/OrderDetails/OrderDetails";
 import DeliveryAddress from "../components/DeliveryAddress/DeliveryAddress";
 import NotFound from "../components/NotFound/NotFound";
+import ProductPost from "../components/ProductPost/ProductPost";
+import VerifyOtp from "../components/VerifyOtp/VerifyOtp";
+import ChangePassword from "../components/ChangePassword/ChangePassword";
 
 export const Router = createBrowserRouter([
   {
@@ -118,4 +121,16 @@ export const Router = createBrowserRouter([
     path: "*",
     element: <NotFound />,
   },
+  {
+    path: "/product-post",
+    element: <ProductPost />
+  },
+  {
+    path: "/verify-otp",
+    element: <VerifyOtp />
+  },
+  {
+    path: "/change-password",
+    element: <ChangePassword />
+  }
 ]);
