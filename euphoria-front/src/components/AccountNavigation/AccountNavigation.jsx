@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 function AccountNavigation() {
-  const currentUser = { name: "Jhanvi" };
+  const currentUser = { name: "User" };
   const { t } = useTranslation();
   const location = useLocation();
   const [menu, setMenu] = useState(false);
@@ -56,7 +56,7 @@ function AccountNavigation() {
           </h2>
           <p>{t("Welcome to your Account")}</p>
           <ul className={style.accountNavLinks}>
-            <NavLink
+            {localStorage.getItem("access_token") && <NavLink
               className={({ isActive }) =>
                 isActive ? `${style.navLink} ${style.active}` : style.navLink
               }
@@ -64,7 +64,7 @@ function AccountNavigation() {
               onClick={() => setMenu(!menu)}
             >
               <img src="/img/AccountNav/orders.png" alt="" /> {t("My Orders")}
-            </NavLink>
+            </NavLink>}
             <NavLink
               className={({ isActive }) =>
                 isActive ? `${style.navLink} ${style.active}` : style.navLink
@@ -74,7 +74,7 @@ function AccountNavigation() {
             >
               <img src="/img/AccountNav/heart.png" alt="" /> {t("Wishlist")}
             </NavLink>
-            <NavLink
+            {localStorage.getItem("access_token") && <NavLink
               className={({ isActive }) =>
                 isActive ? `${style.navLink} ${style.active}` : style.navLink
               }
@@ -82,24 +82,25 @@ function AccountNavigation() {
               onClick={() => setMenu(!menu)}
             >
               <img src="/img/AccountNav/user.png" alt="" /> {t("My info")}
-            </NavLink>
-            <p
-              className={style.navLink}
-              style={{ cursor: "pointer" }}
-              onClick={(e) => {
-                e.preventDefault()
-                setMenu(!menu)
-                const userConfirmed = window.confirm("Are you sure you want to log out?");
-                if (userConfirmed) {
-                  localStorage.removeItem("access_token");
-                  navigate("/");
-                } else {
-                  navigate("/my-account/personal-info");
-                }
-              }}
-            >
-              <img src="/img/AccountNav/logout.png" alt="" /> {t("Sign out")}
-            </p>
+            </NavLink>}
+            {localStorage.getItem("access_token") &&
+              <p
+                className={style.navLink}
+                style={{ cursor: "pointer" }}
+                onClick={(e) => {
+                  e.preventDefault()
+                  setMenu(!menu)
+                  const userConfirmed = window.confirm("Are you sure you want to log out?");
+                  if (userConfirmed) {
+                    localStorage.removeItem("access_token");
+                    navigate("/");
+                  } else {
+                    navigate("/my-account/personal-info");
+                  }
+                }}
+              >
+                <img src="/img/AccountNav/logout.png" alt="" /> {t("Sign out")}
+              </p>}
           </ul>
         </div>
       </div>
@@ -111,14 +112,14 @@ function AccountNavigation() {
         </h2>
         <p>{t("Welcome to your Account")}</p>
         <ul className={style.accountNavLinks}>
-          <NavLink
+          {localStorage.getItem("access_token") && <NavLink
             className={({ isActive }) =>
               isActive ? `${style.navLink} ${style.active}` : style.navLink
             }
             to={"/my-account/my-orders"}
           >
             <img src="/img/AccountNav/orders.png" alt="" /> {t("My Orders")}
-          </NavLink>
+          </NavLink>}
           <NavLink
             className={({ isActive }) =>
               isActive ? `${style.navLink} ${style.active}` : style.navLink
@@ -127,30 +128,33 @@ function AccountNavigation() {
           >
             <img src="/img/AccountNav/heart.png" alt="" /> {t("Wishlist")}
           </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? `${style.navLink} ${style.active}` : style.navLink
-            }
-            to={"/my-account/personal-info"}
-          >
-            <img src="/img/AccountNav/user.png" alt="" /> {t("My info")}
-          </NavLink>
-          <p
-            className={style.navLink}
-            style={{ cursor: "pointer" }}
-            onClick={(e) => {
-              e.preventDefault()
-              const userConfirmed = window.confirm("Are you sure you want to log out?");
-              if (userConfirmed) {
-                localStorage.removeItem("access_token");
-                navigate("/");
-              } else {
-                navigate("/my-account/personal-info");
+          {localStorage.getItem("access_token") &&
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? `${style.navLink} ${style.active}` : style.navLink
               }
-            }}
-          >
-            <img src="/img/AccountNav/logout.png" alt="" /> {t("Sign out")}
-          </p>
+              to={"/my-account/personal-info"}
+            >
+              <img src="/img/AccountNav/user.png" alt="" /> {t("My info")}
+            </NavLink>}
+          {localStorage.getItem("access_token") &&
+            <p
+              className={style.navLink}
+              style={{ cursor: "pointer" }}
+              onClick={(e) => {
+                e.preventDefault()
+                const userConfirmed = window.confirm("Are you sure you want to log out?");
+                if (userConfirmed) {
+                  localStorage.removeItem("access_token");
+                  navigate("/");
+                  window.location.reload()
+                } else {
+                  navigate("/my-account/personal-info");
+                }
+              }}
+            >
+              <img src="/img/AccountNav/logout.png" alt="" /> {t("Sign out")}
+            </p>}
         </ul>
       </div>
     </div>

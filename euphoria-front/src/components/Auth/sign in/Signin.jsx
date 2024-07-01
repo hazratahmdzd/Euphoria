@@ -50,6 +50,7 @@ function Signin() {
         const response = await axios.post('https://euphoria-ecommerce.onrender.com/api/user/login', values);
         localStorage.setItem('access_token', response.data.token);
         navigate('/');
+        window.location.reload()
       } catch (err) {
         setLoading(false);
         setError(t('Email or password is incorrect, please try again'));
