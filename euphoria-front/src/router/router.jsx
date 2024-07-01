@@ -23,7 +23,7 @@ export const Router = createBrowserRouter([
     path: "/",
     element: <Home />,
   },
-  {
+  localStorage.getItem("access_token") ? <></> : {
     path: "/auth",
     element: <Auth />,
     children: [
@@ -53,7 +53,7 @@ export const Router = createBrowserRouter([
       },
     ],
   },
-  {
+  localStorage.getItem("access_token") ? {
     path: "/my-account",
     element: <MyAccount />,
     children: [
@@ -81,7 +81,7 @@ export const Router = createBrowserRouter([
         element: <DeliveryAddress />,
       },
     ],
-  },
+  } : <></>,
   {
     path: "/women",
     element: <Women />,
