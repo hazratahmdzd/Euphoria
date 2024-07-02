@@ -33,10 +33,6 @@ const ProductPost = () => {
         ...prevData.category,
         [name]: value,
       },
-      price: [{
-        ...prevData.price,
-        [name]: value,
-      }]
     }));
   };
 
@@ -45,7 +41,7 @@ const ProductPost = () => {
     setProductData((prevData) => ({
       ...prevData,
       price: [{
-        ...prevData.price,
+        ...prevData.price[0],
         [name]: value,
       }],
     }));
