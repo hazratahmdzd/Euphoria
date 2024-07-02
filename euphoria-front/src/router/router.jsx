@@ -17,7 +17,7 @@ import Myorders from "../components/MyOrders/Myorders";
 import OrderDetails from "../components/OrderDetails/OrderDetails";
 import DeliveryAddress from "../components/DeliveryAddress/DeliveryAddress";
 import NotFound from "../components/NotFound/NotFound";
-import ProductPost from "../components/ProductPost/ProductPost";
+import ProductPost from "../components/ProductPost/ProductPost"
 import VerifyOtp from "../components/VerifyOtp/VerifyOtp";
 import ChangePassword from "../components/ChangePassword/ChangePassword";
 

@@ -1,99 +1,108 @@
 import { useState } from "react";
-import ProductCard from "../ProductCard/ProductCard";
 import { axiosFunction } from "../../api";
 
-const ProductImgPost = () => {
+const ProductPost = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
   const [productData, setProductData] = useState({
+    id: 0,
     productName: "",
     size: "",
     color: "",
-    category: "T_SHIRT",
-    price: [
-      {
-        id: 0,
-        currency: "",
-        amount: 0,
-      }
-    ],
+    gender: "MEN",
+    category: {
+      id: 0,
+      name: "",
+      product: "",
+    },
+    price: [{
+      id: 0,
+      currency: "",
+      amount: 0,
+    }],
     picture: "",
   });
 
-
   const handleInputChange = (event) => {
-    const {name,value} = event.target;
-    setProductData((prevData)=> ({
+    const { name, value } = event.target;
+    setProductData((prevData) => ({
       ...prevData,
       [name]: value,
-      price:[
-        {
-          ...prevData.price,
-          [name]: value,
-        }
-      ]
-    }));
-  };
-
-  const handlePriceChange = (event) => {
-    const {name,value} = event.target;
-    setProductData((prevData)=> ({
-      ...prevData,
+      category: {
+        ...prevData.category,
+        [name]: value,
+      },
       price: [{
         ...prevData.price,
-        [name]: value
+        [name]: value,
       }]
     }));
   };
 
+  const handlePriceChange = (event) => {
+    const { name, value } = event.target;
+    setProductData((prevData) => ({
+      ...prevData,
+      price: [{
+        ...prevData.price,
+        [name]: value,
+      }],
+    }));
+  };
+
   const handleFileChange = (event) => {
-    setProductData((prevData)=> ({
-     ...prevData,
-     picture: event.target.files[0]
+    setProductData((prevData) => ({
+      ...prevData,
+      picture: event.target.files[0],
     }));
   };
 
   const postProduct = async (event) => {
     event.preventDefault();
-  
+
     setLoading(true);
     const formData = new FormData();
-    formData.append('id', 0);
-    formData.append('productName', productData.productName);
-    formData.append('size', productData.size);
-    formData.append('color', productData.color);
-    formData.append('category', productData.category);
-    formData.append('price', JSON.stringify([productData.price]));
-    formData.append('picture', productData.picture);
+    formData.append("id", productData.id);
+    formData.append("productName", productData.productName);
+    formData.append("size", productData.size);
+    formData.append("color", productData.color);
+    formData.append("gender", productData.gender);
+    formData.append("category", JSON.stringify(productData.category));
+    formData.append("price", JSON.stringify([productData.price]));
+    formData.append("picture", productData.picture);
 
     try {
       const response = await axiosFunction("POST", "/product", formData);
-      response && console.log(response.data);
-      response && setProducts([...products, response.data]);
+      setProducts([...products, response]);
       setProductData({
-        productName: '',
-        size: '',
-        color: '',
-        category: 'T_SHIRT',
+        id: 0,
+        productName: "",
+        size: "",
+        color: "",
+        gender: "MEN",
+        category: {
+          id: 0,
+          name: "",
+          product: "",
+        },
         price: {
           id: 0,
-          currency: '',
-          amount: 0
+          currency: "",
+          amount: 0,
         },
-        picture: ''
+        picture: "",
       });
     } catch (err) {
       console.log(err);
       setError(err);
-    } finally{
+    } finally {
       setLoading(false);
     }
-  }
-   
-  if(loading) return <div>Loading...</div>
-  if(error) return <div>Error: {error.message}</div>
+  };
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
   return (
     <div>
       <form onSubmit={postProduct}>
@@ -108,8 +117,8 @@ const ProductImgPost = () => {
               required
             />
           </label>
-          </div>
-          <div>
+        </div>
+        <div>
           <label>
             Size:
             <input
@@ -120,8 +129,8 @@ const ProductImgPost = () => {
               required
             />
           </label>
-          </div>
-          <div>
+        </div>
+        <div>
           <label>
             Color:
             <input
@@ -132,14 +141,36 @@ const ProductImgPost = () => {
               required
             />
           </label>
-          </div>
-          <div>
+        </div>
+        <div>
+          <label>
+            Gender:
+            <input
+              type="text"
+              name="gender"
+              value={productData.gender}
+              readOnly
+            />
+          </label>
+        </div>
+        <div>
           <label>
             Category:
-            <input type="text" name="category" value="T_SHIRT" readOnly/>
+            <input
+              type="text"
+              name="category"
+              value={productData.category.name}
+              onChange={(e) =>
+                setProductData({
+                  ...productData,
+                  category: { ...productData.category, name: e.target.value },
+                })
+              }
+              required
+            />
           </label>
-          </div>
-          <div>
+        </div>
+        <div>
           <label>
             Amount:
             <input
@@ -150,20 +181,20 @@ const ProductImgPost = () => {
               required
             />
           </label>
-          </div>
-          <div>
-            <label>
-              Currency:
-              <input
-                type="text"
-                name="currency"
-                value={productData.price.currency}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-          </div>
-          <div>
+        </div>
+        <div>
+          <label>
+            Currency:
+            <input
+              type="text"
+              name="currency"
+              value={productData.price.currency}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
           <label>
             Picture:
             <input
@@ -175,17 +206,16 @@ const ProductImgPost = () => {
             />
           </label>
         </div>
-        <button type="submit" style={{width:"100px",height:"50px",cursor:"pointer"}}>Add Product</button>
-      </form> <br />
-       <hr />
-      <div style={{height: "400px" , marginTop:"10px"}}>
-        {products.map((p) => (
-        <ProductCard key={p.id} picture={p.picture} productName={p.productName}
-         amount={p.price.amount} currency={p.price.currency} />
-        ))}
-      </div>
+        <button
+          type="submit"
+          style={{ width: "100px", height: "50px", cursor: "pointer" }}
+        >
+          Add Product
+        </button>
+      </form>
+      <br />
     </div>
   );
 };
 
-export default ProductImgPost;
+export default ProductPost;
