@@ -1,8 +1,8 @@
-import React from "react";
 import pdBotStyle from "./PdBottomContainer.module.scss";
 import ProductCard from "../../ProductCard/ProductCard";
 import { useState,useEffect } from "react";
 import { axiosFunction } from "../../../api";
+import { Link } from "react-router-dom";
 
 const PdBottomContainer = () => {
   const [products, setProducts] = useState([]);
@@ -32,6 +32,7 @@ const PdBottomContainer = () => {
   
   return (
     <div className={pdBotStyle.pdBottomContainer}>
+      <Link to="/product-post">Product Post</Link>  <br /><br /><br />
       <div className={pdBotStyle.pdh2holder}>
         <div className={pdBotStyle.pdSimilarProddiv}></div>
         <h2>Similar Products</h2>

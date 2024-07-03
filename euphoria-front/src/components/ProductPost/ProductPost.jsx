@@ -29,23 +29,19 @@ const ProductPost = () => {
     setProductData((prevData) => ({
       ...prevData,
       [name]: value,
-      category: {
-        ...prevData.category,
-        [name]: value,
-      },
     }));
   };
 
-  const handlePriceChange = (event) => {
-    const { name, value } = event.target;
-    setProductData((prevData) => ({
-      ...prevData,
-      price: [{
-        ...prevData.price[0],
-        [name]: value,
-      }],
-    }));
-  };
+  // const handlePriceChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setProductData((prevData) => ({
+  //     ...prevData,
+  //     price: [{
+  //       ...prevData.price[0],
+  //       [name]: value,
+  //     }],
+  //   }));
+  // };
 
   const handleFileChange = (event) => {
     setProductData((prevData) => ({
@@ -64,8 +60,8 @@ const ProductPost = () => {
     formData.append("size", productData.size);
     formData.append("color", productData.color);
     formData.append("gender", productData.gender);
-    formData.append("category", JSON.stringify(productData.category));
-    formData.append("price", JSON.stringify([productData.price]));
+    formData.append("category", productData.category.name);
+    formData.append("price", productData.price.amount);
     formData.append("picture", productData.picture);
 
     try {
@@ -99,6 +95,7 @@ const ProductPost = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
+  
   return (
     <div>
       <form onSubmit={postProduct}>
@@ -159,7 +156,7 @@ const ProductPost = () => {
               onChange={(e) =>
                 setProductData({
                   ...productData,
-                  category: { ...productData.category, name: e.target.value },
+                  category: { ...productData.category, name: e.target.value, product: "" },
                 })
               }
               required
@@ -173,19 +170,12 @@ const ProductPost = () => {
               type="number"
               name="amount"
               value={productData.price.amount}
-              onChange={handlePriceChange}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Currency:
-            <input
-              type="text"
-              name="currency"
-              value={productData.price.currency}
-              onChange={handleInputChange}
+              onChange={(e) =>
+                setProductData({
+                  ...productData,
+                  price: [{ ...productData.price, amount: e.target.value, currency: "AZN" }],
+                })
+              }
               required
             />
           </label>

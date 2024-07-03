@@ -266,6 +266,7 @@ function ListCards() {
           </ul>
         </div> */}
         <div className={listCardsStyle.rCol}>
+        <Link to='/women/:id'>Product Detail</Link> <br />
           <div className={listCardsStyle.headCol}>
             <h6>{t("Women’s Clothing")}</h6>
             <div className={listCardsStyle.colHead}>
