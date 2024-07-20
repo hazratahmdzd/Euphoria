@@ -11,16 +11,13 @@ const ProductPost = () => {
     size: "",
     color: "",
     gender: "MEN",
-    category: {
-      id: 0,
-      name: "",
-      product: "",
-    },
-    price: [{
-      id: 0,
-      currency: "",
-      amount: 0,
-    }],
+    price: [
+      {
+        id: 0,
+        currency: "AZN",
+        amount: 0,
+      },
+    ],
     picture: "",
   });
 
@@ -44,9 +41,9 @@ const ProductPost = () => {
   // };
 
   const handleFileChange = (event) => {
-    setProductData((prevData) => ({
-      ...prevData,
-      picture: event.target.files[0],
+    setProductData(() => ({
+      ...productData,
+      picture: URL.createObjectURL(event.target.files[0]),
     }));
   };
 
@@ -54,18 +51,9 @@ const ProductPost = () => {
     event.preventDefault();
 
     setLoading(true);
-    const formData = new FormData();
-    formData.append("id", productData.id);
-    formData.append("productName", productData.productName);
-    formData.append("size", productData.size);
-    formData.append("color", productData.color);
-    formData.append("gender", productData.gender);
-    formData.append("category", productData.category.name);
-    formData.append("price", productData.price.amount);
-    formData.append("picture", productData.picture);
 
     try {
-      const response = await axiosFunction("POST", "/product", formData);
+      const response = await axiosFunction("POST", "/product", productData);
       setProducts([...products, response]);
       setProductData({
         id: 0,
@@ -73,18 +61,16 @@ const ProductPost = () => {
         size: "",
         color: "",
         gender: "MEN",
-        category: {
-          id: 0,
-          name: "",
-          product: "",
-        },
-        price: {
-          id: 0,
-          currency: "",
-          amount: 0,
-        },
+        price: [
+          {
+            id: 0,
+            currency: "",
+            amount: 0,
+          },
+        ],
         picture: "",
       });
+      console.log(response);
     } catch (err) {
       console.log(err);
       setError(err);
@@ -95,7 +81,7 @@ const ProductPost = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-  
+
   return (
     <div>
       <form onSubmit={postProduct}>
@@ -148,23 +134,6 @@ const ProductPost = () => {
         </div>
         <div>
           <label>
-            Category:
-            <input
-              type="text"
-              name="category"
-              value={productData.category.name}
-              onChange={(e) =>
-                setProductData({
-                  ...productData,
-                  category: { ...productData.category, name: e.target.value, product: "" },
-                })
-              }
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
             Amount:
             <input
               type="number"
@@ -173,7 +142,13 @@ const ProductPost = () => {
               onChange={(e) =>
                 setProductData({
                   ...productData,
-                  price: [{ ...productData.price, amount: e.target.value, currency: "AZN" }],
+                  price: [
+                    {
+                      ...productData.price,
+                      amount: e.target.value,
+                      currency: "AZN",
+                    },
+                  ],
                 })
               }
               required
