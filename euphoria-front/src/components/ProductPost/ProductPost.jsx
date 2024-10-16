@@ -29,17 +29,6 @@ const ProductPost = () => {
     }));
   };
 
-  // const handlePriceChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setProductData((prevData) => ({
-  //     ...prevData,
-  //     price: [{
-  //       ...prevData.price[0],
-  //       [name]: value,
-  //     }],
-  //   }));
-  // };
-
   const handleFileChange = (event) => {
     setProductData(() => ({
       ...productData,
